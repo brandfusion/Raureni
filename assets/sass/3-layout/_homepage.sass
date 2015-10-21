@@ -1,0 +1,69 @@
+.home-boxes
+	+make-row()
+	.title
+		font-weight: 300
+		font-size: 1.3em
+		margin-bottom: 0.5em
+	img 
+		margin-bottom: 1em
+	.wide
+		+make-sm-column(4)		
+	.narrow
+		+make-sm-column(2)	
+	.test2
+		+box-img-only()
+	.test3
+		+box-img-only()
+	.test4
+		+box-img-only()
+.homepage-box		
+	+make-xs-column(6)	
+	min-height: 615px
+	padding: 0
+	color: #fff
+	.content-box 
+		width: 60%
+		padding: 2em
+		.product-item-title
+			font-size: 2.2em
+			line-height: 1.2
+			font-weight: 600
+			text-align: center
+			margin: 0 0 1em 0
+			color: #fff
+		.product-item-details
+			display: block
+			font-size: 1.2em
+			margin: 0.5em 0px 1em 0
+			color: #fff
+		
+		.product-item-button
+			+transition(ease-in,0.5s)
+			color: #fff
+			background-color: $secondary
+			text-align: center
+			line-height: 32px	
+			padding: 0.5em 1.5em	
+			display: inline-block
+			font-size: 1em
+			font-weight: 700			
+			+transition(all 0.5s ease-in)		
+			
+			&:hover
+				text-decoration: none	
+	
+.blog-title 
+	margin-bottom: 2*$spacing
+	background: $secondary
+	padding: 0.5em 1em
+	font-size: 2.2em
+	line-height: 1.2
+	font-weight: 400
+	color: #fff
+.blog-list
+	+clearfix
+	+make-row()
+	.item 		
+		+make-xs-column(6)
+		+make-sm-column(3)
+		+make-md-column(3)		
