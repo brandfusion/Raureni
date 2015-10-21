@@ -3,5 +3,4 @@ node_modules
 assets/css
 .sass-cache
 prepros.cfg
-*.html
 *.css.map
