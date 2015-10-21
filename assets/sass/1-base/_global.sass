@@ -3,7 +3,7 @@
 	margin-bottom: $spacing
 .gray-bg 
 	background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png)
-	padding: 2em 0 1em 0
+	padding: 2em 0 2em 0 
 .container
 	+container-fixed
 	@media (min-width: $screen-sm-min)
@@ -38,3 +38,11 @@
 			font-weight: 400			
 		&:last-child:after		
 			color: $primary
+.align-right
+	text-align: right
+.button-red
+	+button
+	background: $red
+.button-green
+	+button
+	background: $green					

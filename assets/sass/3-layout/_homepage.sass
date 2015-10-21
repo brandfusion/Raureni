@@ -23,27 +23,62 @@
 	color: #fff
 	.content-box 
 		width: 60%
-		padding: 2em
-		.product-item-title
-			font-size: 2.2em
+		padding: 3em 4em
+		.item-title
+			font-size: 3.7em
 			line-height: 1.2
-			font-weight: 600
 			text-align: center
 			margin: 0 0 1em 0
 			color: #fff
-		.product-item-details
+			+special-font()
+		.item-details
 			display: block
-			font-size: 1.2em
+			font-size: 1.3em
 			margin: 0.5em 0px 1em 0
 			color: #fff
 		
-		.product-item-button
+		.item-button
 			+transition(ease-in,0.5s)
 			color: #fff
 			background-color: $secondary
 			text-align: center
 			line-height: 32px	
-			padding: 0.5em 1.5em	
+			padding: 0.4em 1.5em	
+			display: inline-block
+			font-size: 1em
+			font-weight: 700			
+			+transition(all 0.5s ease-in)		
+			
+			&:hover
+				text-decoration: none	
+	.content-box2 
+		width: 90%
+		padding: 3em 4em
+		.item-subtitle
+			display: block
+			font-size: 1.3em
+			margin: 0.5em 0px 0 0
+			color: $primary
+		.item-title
+			font-size: 3.7em
+			line-height: 1.2
+			text-align: center
+			margin: 0 0 0 0
+			color: #00800f
+			+special-font()
+		.item-details
+			display: block
+			font-size: 1.3em
+			margin: 1em 0px 1.5em 0
+			color: $primary
+		
+		.item-button
+			+transition(ease-in,0.5s)
+			color: #fff
+			background-color: $secondary
+			text-align: center
+			line-height: 32px	
+			padding: 0.4em 1.5em	
 			display: inline-block
 			font-size: 1em
 			font-weight: 700			
@@ -53,12 +88,12 @@
 				text-decoration: none	
 	
 .blog-title 
+	+special-font()
 	margin-bottom: 2*$spacing
 	background: $secondary
-	padding: 0.5em 1em
-	font-size: 2.2em
-	line-height: 1.2
-	font-weight: 400
+	padding: 0.1em 1em 0.1em 1.5em
+	font-size: 3.7em
+	line-height: 1
 	color: #fff
 .blog-list
 	+clearfix
@@ -66,4 +101,29 @@
 	.item 		
 		+make-xs-column(6)
 		+make-sm-column(3)
-		+make-md-column(3)		
+		+make-md-column(3)	
+.boxes
+	.item 
+		padding: 0
+	.item .box 
+		padding: 0
+		margin: 0
+	.item .box a
+		display: block
+.homepage .box		
+	margin-bottom: 0
+
+.newsletter
+	+make-row()	
+	padding: 2em 3em 3em
+	color: #fff
+	background: $secondary
+	h2 
+		+special-font()
+		font-size: 3.7em
+	input[type="text"] 
+		margin: 0 1em 0 0
+		padding: 0.3em 1em
+		background: #fff
+		color: $primary
+		width: 50% 	
