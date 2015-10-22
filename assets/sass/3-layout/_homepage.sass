@@ -17,13 +17,22 @@
 	.test4
 		+box-img-only()
 .homepage-box		
-	+make-xs-column(6)	
-	min-height: 615px
+	+make-xs-column(12)
+	+make-sm-column(12)
+	+make-md-column(6)
+	+make-lg-column(6)	
+	min-height: 500px
 	padding: 0
 	color: #fff
 	.content-box 
-		width: 60%
+		width: 90%
 		padding: 3em 4em
+		@media (min-width: $screen-sm-min)
+			width: 90%
+		@media (min-width: $screen-md-min)
+			width: 60%
+		@media (min-width: $screen-lg-min)
+			width: 60%
 		.item-title
 			font-size: 3.7em
 			line-height: 1.2
@@ -64,7 +73,7 @@
 			line-height: 1.2
 			text-align: center
 			margin: 0 0 0 0
-			color: #00800f
+			color: $dark-green
 			+special-font()
 		.item-details
 			display: block
@@ -99,12 +108,26 @@
 	+clearfix
 	+make-row()
 	.item 		
-		+make-xs-column(6)
-		+make-sm-column(3)
+		+make-xs-column(12)
+		+make-sm-column(6)
 		+make-md-column(3)	
+		@media (min-width: $screen-xs-min)
+			margin: 0 0 1em 0
+		@media (min-width: $screen-md-min)
+			margin: 0			
+		img 
+			width: 100%
+		.item-title
+			margin: 1em 1em 0
+			max-width: 100%
+
 .boxes
 	.item 
 		padding: 0
+		@media (min-width: $screen-xs-min)
+			margin: 0
+		@media (min-width: $screen-md-min)
+			margin: 0
 	.item .box 
 		padding: 0
 		margin: 0
