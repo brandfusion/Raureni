@@ -1,0 +1,39 @@
+.contact-page
+	h2 
+		+special-font()
+		margin: 0.2em 0
+		font-size: 3em
+		font-weight: 700
+		color: $dark-green
+		padding-left: 10px
+		text-transform: uppercase
+		@media (max-width:768px)
+			font-size: 1.8em
+		@media (max-width:480px)
+			font-size: 1.5em	
+
+.contact-box
+	+make-xs-column(6)	
+	+make-sm-column(4)	
+	+make-md-column(4)	
+	+make-lg-column(3)	
+	font-size: 0.8em
+	line-height: 1.5
+	min-height: 150px
+	color: $dark-gray
+	h2 
+		padding-left: 0
+	h4 
+		font-weight: 700
+		color: $green
+
+.contact-box-2 
+	+make-xs-column(12)	
+	+make-sm-column(12)	
+	+make-md-column(6)	
+	+make-lg-column(6)	
+	font-size: 0.8em
+	line-height: 1.5
+	color: $dark-gray
+	h2 
+		padding-left: 0	

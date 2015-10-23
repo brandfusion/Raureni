@@ -1,87 +1,166 @@
 .article-page 
 	padding: 0px
-	.inline
-		font-size: 0.8em
-		margin-bottom: 0.5em
-		color: #aaa
-		font-weight: 300
-		p
-			margin: 0 0.5em 0 0
-			display: inline
-		a
-			font-weight: 600
-.category-header 
 	h1
-		border-bottom: 1px solid $accent
-		margin: 0.5em 0
-		font-size: 1em
-		padding-bottom: 0.5em
-		color: $accent
-		font-weight: 400
+		+special-font()
+		margin: 0.2em 0
+		font-size: 3em
+		color: $dark-green
+		padding-left: 1em
 		text-transform: uppercase
-		+box-shadow(0px 1px 1px #eee)
-.article
-	+make-md-column(8)	
-	margin-bottom: 1.5em
-	h2
-		margin-bottom: 0.2em
-		font-weight: 400
-		font-size: 2.2em
-		line-height: 1.2
 		@media (max-width:768px)
 			font-size: 1.8em
 		@media (max-width:480px)
 			font-size: 1.5em	
-	.date
-		font-size: 1em
-		margin: 0
-		&:before
-			font-family: "FontAwesome"
-			font-weight: 400
-			content: "\f017"
-			margin-right: 0.2em
-			color: #ccc	
-	.header
-		margin-bottom: 1em		
-.article-aside-list 	
-	+make-md-column(4)	
-	font-size: 0.8em
-	.media
-		margin: 0 0 1em		
-	.media-object
-		width: 60px		
-	h4 
-		width: 90%
-		+text-overflow()
+
+.blog-category			
+	+make-xs-column(6)	
+	+make-sm-column(6)		
+	+make-md-column(3)	
+	text-align: center
+	img, a 
+		width: 100%
+		display: block
+		text-decoration: none	
+	span 
+		font-weight: 600
+		color: $dark-gray
+		font-size: 0.8em
+		text-transform: uppercase	
+	a:hover span	
+		color: $green
+
+
+.article-aside-list 
+	+make-xs-column(12)	
+	+make-sm-column(4)		
+	+make-md-column(3)	
+	.newsletter
+		padding: 1em
+		h2
+			font-size: 2em
+			margin-bottom: 0.5em
+		input[type="text"]
+			width: 100%
+			font-size: 0.8em
+		input[type="submit"]
+			font-size: 0.8em
+			margin: 1em 0 0 0
+
+	h3
+		+special-font()
+		color: $dark-green
+		font-size: 2.2em
+		font-weight: 600
+		margin: 0.9em 0 0.5em 0
+	h4
+		font-size: 0.9em
+		font-weight: 600
+		color: $dark-green
+		margin: 1.5em 0 1em 0
+	ul 
+		margin: 1em 0 3em 1em
+		li 
+			color: $dark-gray
+			padding: 0 0 1em 0
 		a
-			display: inline
-	p
-		margin-bottom: 0
-	a
-		color: #333	
-		&:hover 
-			color: darken(adjust_hue($accent, 136), 11)
+			color: $dark-gray
+			font-size: 0.8em
+		i 
+			color: $green
+			font-size: 0.8em			
+			display: inline-block
+			vertical-align: top
+			margin: 0 0.5em 0 0
+			line-height: 1.4
+			max-width: 5%
+		span 
+			display: inline-block
+			vertical-align: top
+			line-height: 1.2
+			max-width: 90%
+
+
 .article-list
-	+make-md-column(8)
-	.media
-		margin-bottom: 1em
-		border-bottom: 1px solid #eee
-		padding-bottom: 1em
-		&:last-child
-			border: none
-	.media-object
-		width: 180px	
-		@media (max-width:768px)
-			width: 60px		
-	h2
-		font-weight: 400
+	+make-xs-column(12)	
+	+make-sm-column(8)		
+	+make-md-column(9)	
+	.post-short 
+		+make-xs-column(12)			
+		background: #fff
+		padding: 0
+		margin: 0 0 3*$spacing 0
+	.media-left
+		+make-xs-column(12)	
+		+make-sm-column(12)		
+		+make-md-column(8)	
+		padding-left: 0
+		padding-right: 0
+		@media (min-width: $screen-md-min)
+			padding-right: 10px
+		a 
+			display: block
+		img
+			width: 100%
+
+	.media-body
+		+make-xs-column(12)	
+		+make-sm-column(12)		
+		+make-md-column(4)	
+		padding-top: 2em
+		padding-bottom: 2em
+		padding-left: 20px
+		padding-right: 30px
+	h3		
+		font-size: 1.5em
+		font-weight: 600
+		line-height: 1.2	
+		margin-bottom: 1em	
 		@media (max-width:480px)
 			font-size: 1.2em	
 		a
-			color: #000
-			&:hover 
-				color: darken(adjust_hue($accent, 136), 11)
+			color: $secondary
+			text-decoration: none
+		a:hover
+			text-decoration: underline
+	a:hover 
+		color: $secondary
 	p
 		margin-bottom: 0.5em
-	.inline
-		margin-bottom: 0.2em
+	.post-summary
+		font-size: 0.8em
+		line-height: 1.5
+		color: $dark-gray
+
+	
+.article
+	+make-xs-column(12)	
+	padding: 0 0 2em 0
+	margin-right: 20px
+	background: #fff	
+	.post-description
+		font-size: 0.8em
+		line-height: 1.5
+		color: $dark-gray	
+		padding: 2em 3em	
+		h4 
+			font-size: 1em
+			font-weight: 600
+			color: $green
+			margin: 0 0 1em 0
+		p 
+			margin: 0 0 1em 0
+		ul 
+			margin: 1em 0
+	.next-article 
+		margin-right: 3em
+
+
+.view-all, .next-article 
+	color: $dark-green
+	font-size: 1em
+	font-weight: 600
+	text-transform: uppercase
+	margin: 1em 0 0 0
+	text-decoration: none
+	&:hover
+		color: $green		

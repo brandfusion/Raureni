@@ -38,8 +38,23 @@
 			font-weight: 400			
 		&:last-child:after		
 			color: $primary
+
+h1
+	+special-font()
+	margin: 0.2em 0
+	font-size: 3em
+	font-weight: 700
+	color: $dark-green
+	text-transform: uppercase
+	@media (max-width:768px)
+		font-size: 1.8em
+	@media (max-width:480px)
+		font-size: 1.5em	
+			
+				
 .align-right
 	text-align: right
+
 .button-red
 	+button
 	background: $red
@@ -51,4 +66,92 @@
 	background: $green	
 	&:hover
 		background: $dark-green	
-		color: #fff				
+		color: #fff	
+.reset-padding
+	padding: 0
+
+
+.general-paragraph
+	+make-xs-column(6)	
+	height: 615px
+	line-height: 615px
+	overflow: hidden
+	float: none
+	display: block
+	padding: 0
+	color: #fff
+	width: 100%
+	text-align: right
+	
+	.item
+		width: 100%
+		position: relative
+		top: 50%
+		transform: translateY(-50%)
+		padding-left: 1em
+		padding-right: 1em
+		text-align: left	
+		line-height: 1	
+		display: inline-block
+
+		@media (min-width: $screen-sm-min)
+			padding-left: 1em
+			padding-right: 1em
+			width: 100%
+		@media (min-width: $screen-md-min)
+			padding-left: 4em
+			padding-right: 4em
+			width: 45%
+		@media (min-width: $screen-lg-min)
+			padding-left: 4em
+			padding-right: 4em
+			width: 45%
+		.item-subtitle
+			display: block
+			font-size: 1.3em
+			line-height: 1
+			margin: 0.5em 0px 0 0
+			color: #fff
+		.item-title
+			font-size: 3.7em
+			line-height: 1.2
+			display: block
+			text-align: left
+			margin: 0.2em 0 0 0
+			color: #fff
+			+special-font()
+		.item-details
+			display: block
+			font-size: 1.1em
+			line-height: 1.3
+			margin: 1em 0px 1.5em 0
+			color: #fff		
+		.item-button
+			+button
+			background: $green	
+			&:hover
+				background: $dark-green	
+				color: #fff		
+
+		&.dark-text .item-subtitle, &.dark-text .item-details
+			color: $dark-gray
+		&.dark-text .item-title
+			color: $dark-green
+
+	.green-box
+		padding: 1.5em 2em
+		background: $green
+		color: #fff
+		width: 100%
+		@media (min-width: $screen-sm-min)
+			width: 100%
+		@media (min-width: $screen-md-min)
+			width: auto
+		.item-title
+			font-size: 3em	
+			margin-bottom: 0.5em	
+		.item-details
+			font-size: 0.9em
+			line-height: 1.5
+		a
+			color: #fff			

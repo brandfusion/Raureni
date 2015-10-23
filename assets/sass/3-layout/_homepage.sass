@@ -20,7 +20,6 @@
 	+make-xs-column(12)
 	+make-sm-column(12)
 	+make-md-column(6)
-	+make-lg-column(6)	
 	min-height: 500px
 	padding: 0
 	color: #fff
@@ -47,19 +46,11 @@
 			color: #fff
 		
 		.item-button
-			+transition(ease-in,0.5s)
-			color: #fff
-			background-color: $secondary
-			text-align: center
-			line-height: 32px	
-			padding: 0.4em 1.5em	
-			display: inline-block
-			font-size: 1em
-			font-weight: 700			
-			+transition(all 0.5s ease-in)		
-			
+			+button
+			background: $green	
 			&:hover
-				text-decoration: none	
+				background: $dark-green	
+				color: #fff	
 	.content-box2 
 		width: 90%
 		padding: 3em 4em
@@ -82,19 +73,11 @@
 			color: $primary
 		
 		.item-button
-			+transition(ease-in,0.5s)
-			color: #fff
-			background-color: $secondary
-			text-align: center
-			line-height: 32px	
-			padding: 0.4em 1.5em	
-			display: inline-block
-			font-size: 1em
-			font-weight: 700			
-			+transition(all 0.5s ease-in)		
-			
+			+button
+			background: $green	
 			&:hover
-				text-decoration: none	
+				background: $dark-green	
+				color: #fff		
 	
 .blog-title 
 	+special-font()
@@ -120,7 +103,16 @@
 		.item-title
 			margin: 1em 1em 0
 			max-width: 100%
-
+		.item-button
+			+button
+			color: $secondary
+			background: none	
+			padding: 0
+			text-decoration: underline
+			&:hover
+				color: $secondary
+				background: none	
+				text-decoration: none
 .boxes
 	.item 
 		padding: 0
