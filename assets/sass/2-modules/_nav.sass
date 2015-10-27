@@ -34,14 +34,17 @@
 			margin-left: 0.5em
 	.dropdown:hover
 		.dropdown-menu
-			display: inline-block		
+			display: inline-block
+		a
+			color: $dark-gray
+			border-bottom: 2px solid $secondary		
 	.dropdown-menu
 		display: none
 		+v-nav
 		+clearfix
 		position: absolute
-		top: 10px
-		left: 0
+		top: 25px
+		left: 0.5em
 		.level-2	
 			padding: 0.2em 0 0 0		
 			a
@@ -51,10 +54,12 @@
 				font-size: 0.9em
 				padding-left: 1em
 				color: $dark-gray
+				border-bottom: 2px solid transparent
 				&:after
 					display: none
 				&:hover 
-					color: $light-gray			
+					color: $light-gray	
+					border-bottom: 2px solid transparent		
 		.level-2-container
 			padding: 1em $grid-gutter-width/2
 			float: left		

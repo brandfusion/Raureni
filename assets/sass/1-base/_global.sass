@@ -1,6 +1,7 @@
 .container-wide
 	+clearfix
 	margin-bottom: $spacing
+	clear: both
 .gray-bg 
 	background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png)
 	padding: 2em 0 2em 0 
@@ -71,8 +72,18 @@ h1
 	padding: 0
 
 
+
+.image-box 
+	width: 100%
+	min-height: 615px
+	margin-bottom: -615px
+	img 
+		height: 100%
+		width: auto	
 .general-paragraph
-	+make-xs-column(6)	
+	+make-xs-column(12)	
+	+make-sm-column(12)
+	+make-md-column(6)		
 	height: 615px
 	line-height: 615px
 	overflow: hidden
@@ -112,6 +123,7 @@ h1
 			line-height: 1
 			margin: 0.5em 0px 0 0
 			color: #fff
+			text-transform: uppercase
 		.item-title
 			font-size: 3.7em
 			line-height: 1.2
@@ -132,7 +144,11 @@ h1
 			&:hover
 				background: $dark-green	
 				color: #fff		
-
+		&.white-text .item-subtitle, &.white-text .item-details
+			color: #fff
+		&.white-text .item-title
+			color: #fff
+					
 		&.dark-text .item-subtitle, &.dark-text .item-details
 			color: $dark-gray
 		&.dark-text .item-title
@@ -154,4 +170,103 @@ h1
 			font-size: 0.9em
 			line-height: 1.5
 		a
-			color: #fff			
+			color: #fff		
+
+.container-wide .general-paragraph				
+	+make-xs-column(12)	
+	+make-sm-column(12)
+	+make-md-column(3)	
+
+
+.universal-paragraph 
+	+make-xs-column(12)	
+	padding: 0
+	.item 
+		+make-row()	
+		margin: 0 0 2*$spacing 0
+	.item-title
+		font-size: 3.7em
+		line-height: 1.2
+		display: block
+		text-align: left		
+		color: $dark-green
+		float: left	
+		+special-font()
+		margin: 0 0 $spacing 0	
+	.item-image 
+		float: left	
+		margin: 0 0 2*$spacing 0
+	.item-details
+		display: block
+		font-size: 1.1em
+		line-height: 1.3
+		margin: 0
+		color: #000	
+		float: left
+		margin: 0 0 2*$spacing 0	
+	
+	.item-1 
+		.item-title 
+			width: 100%			
+		.item-image 
+			width: 50%
+			float: left			
+		.item-details
+			width: 50%
+			float: right	
+	.item-2
+		display: none
+		.item-title 
+			width: 50%	
+			float: right		
+		.item-image 
+			width: 50%
+			float: left			
+		.item-details
+			width: 50%	
+			float: right
+	.item-3
+		display: none
+		.item-title 
+			width: 50%	
+			float: left		
+		.item-image 
+			width: 50%	
+			float: right		
+		.item-details
+			width: 50%	
+			float: left
+	.item-4
+		.item-title 
+			width: 100%			
+		.item-image 
+			width: 50%	
+			float: right		
+		.item-details
+			width: 50%	
+			float: left
+
+
+	.item-5
+		.item-title 
+			width: 100%			
+		.item-image 
+			width: 100%	
+		.item-details
+			display: none
+	.item-6
+		.item-title 
+			width: 100%			
+		.item-image 
+			display: none
+		.item-details
+			width: 100%				
+	.item-7
+		.item-title 
+			width: 100%			
+		.item-image 
+			width: 100%			
+		.item-details
+			width: 100%			
+
+

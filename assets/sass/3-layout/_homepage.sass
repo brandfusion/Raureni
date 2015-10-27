@@ -16,6 +16,8 @@
 		+box-img-only()
 	.test4
 		+box-img-only()
+
+
 .homepage-box		
 	+make-xs-column(12)
 	+make-sm-column(12)
@@ -23,6 +25,8 @@
 	min-height: 500px
 	padding: 0
 	color: #fff
+	&.pull-right
+		float: right
 	.content-box 
 		width: 90%
 		padding: 3em 4em
@@ -51,39 +55,40 @@
 			&:hover
 				background: $dark-green	
 				color: #fff	
-	.content-box2 
-		width: 90%
-		padding: 3em 4em
-		.item-subtitle
-			display: block
-			font-size: 1.3em
-			margin: 0.5em 0px 0 0
-			color: $primary
-		.item-title
-			font-size: 3.7em
-			line-height: 1.2
-			text-align: center
-			margin: 0 0 0 0
-			color: $dark-green
-			+special-font()
-		.item-details
-			display: block
-			font-size: 1.3em
-			margin: 1em 0px 1.5em 0
-			color: $primary
+	// .content-box2 
+	// 	width: 90%
+	// 	padding: 3em 4em
+	// 	.item-subtitle
+	// 		display: block
+	// 		font-size: 1.3em
+	// 		margin: 0.5em 0px 0 0
+	// 		color: $primary
+	// 	.item-title
+	// 		font-size: 3.7em
+	// 		line-height: 1.2
+	// 		text-align: center
+	// 		margin: 0 0 0 0
+	// 		color: $dark-green
+	// 		text-transform: uppercase
+	// 		+special-font()
+	// 	.item-details
+	// 		display: block
+	// 		font-size: 1.3em
+	// 		margin: 1em 0px 1.5em 0
+	// 		color: $primary
 		
-		.item-button
-			+button
-			background: $green	
-			&:hover
-				background: $dark-green	
-				color: #fff		
+	// 	.item-button
+	// 		+button
+	// 		background: $green	
+	// 		&:hover
+	// 			background: $dark-green	
+	// 			color: #fff		
 	
 .blog-title 
 	+special-font()
 	margin-bottom: 2*$spacing
 	background: $secondary
-	padding: 0.1em 1em 0.1em 1.5em
+	padding: 0.1em 1em 0.1em 1em
 	font-size: 3.7em
 	line-height: 1
 	color: #fff
@@ -108,6 +113,9 @@
 			color: $secondary
 			background: none	
 			padding: 0
+			font-size: 0.9em
+			font-weight: 400
+			line-height: 1.2
 			text-decoration: underline
 			&:hover
 				color: $secondary

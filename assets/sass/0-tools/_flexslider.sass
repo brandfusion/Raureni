@@ -161,27 +161,35 @@ html[xmlns] .flexslider .slides
     zoom: 1
     *display: inline
 
-.flex-control-paging li a
-  width: 18px
-  height: 18px
-  display: block
-  background: #666
-  background: none
-  cursor: pointer
-  text-indent: -9999px
-  border: 2px solid #fff
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
-  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
-  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
-  -webkit-border-radius: 50%
-  -moz-border-radius: 50%
-  border-radius: 50%
-  &:hover
-    background: #7a9017
-  &.flex-active
-    background: #7a9017
-    cursor: default
+.flex-control-paging li    
+  border-radius: 20px
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border: none
+  
+  a 
+    width: 18px
+    height: 18px
+    display: block
+    background: #666
+    background: none
+    cursor: pointer
+    text-indent: -9999px
+    border: none
+    border-radius: 20px
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border: 2px solid #fff
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
+    -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3)
+    
+    &:hover
+      background: #7a9017
+    &.flex-active
+      background: #7a9017
+      cursor: default  
 
 .flex-control-thumbs
   margin: 5px 0 0
