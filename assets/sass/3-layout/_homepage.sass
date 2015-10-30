@@ -55,46 +55,20 @@
 			&:hover
 				background: $dark-green	
 				color: #fff	
-	// .content-box2 
-	// 	width: 90%
-	// 	padding: 3em 4em
-	// 	.item-subtitle
-	// 		display: block
-	// 		font-size: 1.3em
-	// 		margin: 0.5em 0px 0 0
-	// 		color: $primary
-	// 	.item-title
-	// 		font-size: 3.7em
-	// 		line-height: 1.2
-	// 		text-align: center
-	// 		margin: 0 0 0 0
-	// 		color: $dark-green
-	// 		text-transform: uppercase
-	// 		+special-font()
-	// 	.item-details
-	// 		display: block
-	// 		font-size: 1.3em
-	// 		margin: 1em 0px 1.5em 0
-	// 		color: $primary
-		
-	// 	.item-button
-	// 		+button
-	// 		background: $green	
-	// 		&:hover
-	// 			background: $dark-green	
-	// 			color: #fff		
+	
 	
 .blog-title 
 	+special-font()
-	margin-bottom: 2*$spacing
+	margin: 3*$spacing 0 2*$spacing 0
 	background: $secondary
-	padding: 0.1em 1em 0.1em 1em
-	font-size: 3.7em
+	padding: 0.2em 1em 0.2em 1em
+	font-size: 3em
 	line-height: 1
 	color: #fff
 .blog-list
 	+clearfix
 	+make-row()
+	margin-bottom: 3*$spacing
 	.item 		
 		+make-xs-column(12)
 		+make-sm-column(6)
@@ -108,6 +82,8 @@
 		.item-title
 			margin: 1em 1em 0
 			max-width: 100%
+		.item-details
+			color: $light-gray
 		.item-button
 			+button
 			color: $secondary
@@ -141,6 +117,7 @@
 	padding: 2em 3em 3em
 	color: #fff
 	background: $secondary
+	margin: 0
 	h2 
 		+special-font()
 		font-size: 3.7em
