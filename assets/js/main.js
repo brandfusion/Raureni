@@ -39,4 +39,8 @@ $(document).ready(function() {
 	$('.item-details').each(function(){
 	   listLimit ($(this), 5)
 	})
+
+  $('.level-1').on("hover", function(){
+      $(".header").addClass('drawer');
+  });
 });

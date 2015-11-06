@@ -2,27 +2,32 @@
 	margin: 0 $spacing $spacing
 	font-size: 1.6em
 	text-transform: uppercase
-	&:after
-		content: "//"
-		margin-left: 0.2em
-		margin-right: 0.2em
+	
 .category-page
-	+make-row()
+	margin: 3em 0 0 0
 	.category-banner		
 		padding: 0px $spacing	
 	.aside-category
 		@extend .aside									
 	.main
 		+make-xs-column(12)
+		padding: 0
 
+.categories .category 
+	background: url("/Files/Templates/Designs/Raureni/assets/img/categories-bg.png") repeat-x left bottom
+.categories .category-box
+	width: auto
+	padding: 0 0 0 2em
+.categories .category-box:first-child
+	padding:0	
 
 .product-list--category
 	+clearfix
 	+make-row()
-	padding: 3em 0 0 0
+	padding: 0 0 1em 0
 	.product-box
 		padding-bottom: 1em
-		margin-bottom: 1em
+		margin-bottom: 0
 		background-color: #fff
 		+transition(ease-in,0.2s)
 		p
@@ -34,11 +39,10 @@
 		.product-item-title
 			font-size: 0.9em
 			font-weight: 600
-			line-height: 1.2
+			line-height: 1.3
 			text-align: left
 			min-height: 2em
-			max-width: 50%
-			margin: 1em auto 0
+			margin: 0.5em 1em 0
 			color: $secondary
 			text-align: center
 			@media (min-width: $screen-sm-min)
@@ -46,17 +50,21 @@
 			@media (min-width: $screen-md-min)
 				min-height: 2em
 			@media (min-width: $screen-lg-min)
-				min-height: 4em
+				min-height: 3em
 			
 	.item 		
 		+make-xs-column(6)
-		+make-sm-column(6)
-		+make-md-column(2,10)
-		min-height: 230px
+		+make-sm-column(4)
+		+make-md-column(3)
+		min-height: 215px
+		@media (min-width: $screen-sm-min)
+			min-height: 300px
 		a
 			text-decoration: none
 			img 
-				width: 100%
+				width: 90%
+				margin: 0 auto
+				display: block
 	.category-paragraph
 		+make-xs-column(12)
 		+make-sm-column(12)
@@ -78,3 +86,40 @@
 			font-weight: 400
 			color: $primary
 			max-width: 80%
+	.category-items
+		+make-xs-column(12)
+		+make-sm-column(12)
+		+make-md-column(8,10)
+		+make-row()
+
+.show-more-height 
+	height: 300px
+	width: 100%
+	overflow: hidden
+.show-more
+	clear: both 
+	float: right 
+	font-size: 0.8em
+	font-weight: 600
+	color: $green
+	width: 176px
+	text-align: center 
+	padding: 0.5em 1em 
+	cursor: pointer
+	background: url("/Files/Templates/Designs/Raureni/assets/img/show-more.png") no-repeat center center
+	&:after
+		content: "\f0d7"
+		font-family: FontAwesome 
+		font-size: 1em
+		font-weight: 600
+		margin: 0 0 0 0.5em
+		display: inline-block
+	&:hover 
+		&:after
+			transform: rotate(-180deg)
+	&.opened
+		&:after
+			content: "\f0d8"
+		&:hover 
+			&:after
+				transform: rotate(0deg)	

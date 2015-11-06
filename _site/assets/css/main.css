@@ -81,7 +81,7 @@ html[xmlns] .flexslider .slides {
     overflow: hidden;
     opacity: 0;
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.8);
+    color: white;
     text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
@@ -90,7 +90,7 @@ html[xmlns] .flexslider .slides {
       font-size: 40px;
       display: inline-block;
       content: '\f104';
-      color: rgba(0, 0, 0, 0.8);
+      color: white;
       text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3); }
     .flex-direction-nav a.flex-next:before {
       content: '\f105'; }
@@ -142,10 +142,10 @@ html[xmlns] .flexslider .slides {
 .flex-control-nav {
   width: 100%;
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   text-align: center; }
   .flex-control-nav li {
-    margin: 0 6px;
+    margin: 0 4px;
     display: inline-block;
     zoom: 1;
     *display: inline; }
@@ -156,24 +156,21 @@ html[xmlns] .flexslider .slides {
   -moz-border-radius: 20px;
   border: none; }
   .flex-control-paging li a {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     display: block;
-    background: #666;
-    background: none;
+    background: url("/Files/Templates/Designs/Raureni/assets/img/bullets.png") no-repeat 0 -27px;
     cursor: pointer;
     text-indent: -9999px;
     border: none;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border: 2px solid #fff;
-    -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3); }
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border: none; }
     .flex-control-paging li a:hover {
-      background: #7a9017; }
+      background-position: 0 0; }
     .flex-control-paging li a.flex-active {
-      background: #7a9017;
+      background-position: 0 0;
       cursor: default; }
 
 .flex-control-thumbs {
@@ -226,10 +223,14 @@ p {
 a {
   display: inline-block;
   text-decoration: underline;
-  color: #7a9017; }
+  color: #7a9017;
+  outline: 0; }
   a:hover {
     text-decoration: none;
     color: #7a9017; }
+
+a:hover, a:active, a:focus {
+  outline: 0; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
@@ -258,10 +259,6 @@ input, button, textarea, select {
     display: table; }
   .container-wide:after {
     clear: both; }
-
-.gray-bg {
-  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png);
-  padding: 0; }
 
 .container {
   margin-right: auto;
@@ -357,26 +354,25 @@ h1 {
 .button-red {
   text-decoration: none;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.6em 0;
   font-weight: 600;
   line-height: 1;
   color: #fff;
-  background: #ff1d25; }
-  .button-red:hover {
-    background: #b41c24;
-    color: #fff; }
+  text-align: center;
+  background: url("/Files/Templates/Designs/Raureni/assets/img/button-red.png") no-repeat left top transparent;
+  min-width: 284px;
+  padding: 0.7em 0 0.6em 0; }
 
-.button-green {
+.button-green, .button-green:hover {
   text-decoration: none;
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.6em 0;
   font-weight: 600;
   line-height: 1;
   color: #fff;
-  background: #7a9017; }
-  .button-green:hover {
-    background: #00800f;
-    color: #fff; }
+  text-align: center;
+  background: url("/Files/Templates/Designs/Raureni/assets/img/button-green.png") no-repeat left top transparent;
+  min-width: 228px; }
 
 .reset-padding {
   padding: 0; }
@@ -389,156 +385,14 @@ h1 {
     height: 100%;
     width: auto; }
 
-.general-paragraph {
-  position: relative;
-  float: left;
-  width: 100%;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 615px;
-  line-height: 615px;
-  overflow: hidden;
-  float: none;
-  display: block;
-  padding: 0;
-  color: #fff;
-  width: 100%;
-  text-align: right; }
-  @media (min-width: 768px) {
-    .general-paragraph {
-      float: left;
-      width: 100%; } }
-  @media (min-width: 992px) {
-    .general-paragraph {
-      float: left;
-      width: 50%; } }
-  .general-paragraph .item {
-    width: 100%;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    padding-left: 1em;
-    padding-right: 1em;
-    text-align: left;
-    line-height: 1;
-    display: inline-block; }
-    @media (min-width: 768px) {
-      .general-paragraph .item {
-        padding-left: 1em;
-        padding-right: 1em;
-        width: 100%; } }
-    @media (min-width: 992px) {
-      .general-paragraph .item {
-        padding-left: 4em;
-        padding-right: 4em;
-        width: 45%; } }
-    @media (min-width: 1200px) {
-      .general-paragraph .item {
-        padding-left: 4em;
-        padding-right: 4em;
-        width: 45%; } }
-    .general-paragraph .item .item-subtitle {
-      display: block;
-      font-size: 1.3em;
-      line-height: 1;
-      margin: 0.5em 0px 0 0;
-      color: #fff;
-      text-transform: uppercase; }
-    .general-paragraph .item .item-title {
-      font-size: 3.7em;
-      line-height: 1.2;
-      display: block;
-      text-align: left;
-      margin: 0.2em 0 0 0;
-      color: #fff;
-      font-family: 'Amatic SC';
-      font-style: normal;
-      font-weight: 600; }
-    .general-paragraph .item .item-details {
-      display: block;
-      font-size: 1.1em;
-      line-height: 1.3;
-      margin: 1em 0px 1.5em 0;
-      color: #fff; }
-    .general-paragraph .item .item-button {
-      text-decoration: none;
-      display: inline-block;
-      padding: 0.5em 1em;
-      font-weight: 600;
-      line-height: 1;
-      color: #fff;
-      background: #7a9017; }
-      .general-paragraph .item .item-button:hover {
-        background: #00800f;
-        color: #fff; }
-    .general-paragraph .item.white-text .item-subtitle, .general-paragraph .item.white-text .item-details {
-      color: #fff; }
-    .general-paragraph .item.white-text .item-title {
-      color: #fff; }
-    .general-paragraph .item.dark-text .item-subtitle, .general-paragraph .item.dark-text .item-details {
-      color: #808080; }
-    .general-paragraph .item.dark-text .item-title {
-      color: #00800f; }
-  .general-paragraph .green-box {
-    padding: 1.5em 2em;
-    background: #7a9017;
-    color: #fff;
-    width: 100%; }
-    @media (min-width: 768px) {
-      .general-paragraph .green-box {
-        width: 100%; } }
-    @media (min-width: 992px) {
-      .general-paragraph .green-box {
-        width: auto; } }
-    .general-paragraph .green-box .item-title {
-      font-size: 3em;
-      margin-bottom: 0.5em; }
-    .general-paragraph .green-box .item-details {
-      font-size: 0.9em;
-      line-height: 1.5; }
-    .general-paragraph .green-box a {
-      color: #fff; }
-
-.container-wide .general-paragraph {
-  position: relative;
-  float: left;
-  width: 100%;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px; }
-  @media (min-width: 768px) {
-    .container-wide .general-paragraph {
-      float: left;
-      width: 100%; } }
-  @media (min-width: 992px) {
-    .container-wide .general-paragraph {
-      float: left;
-      width: 25%; } }
-
 .white-bg {
   background: #fff; }
 
 .gray-bg {
-  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png); }
+  background: url(/Files/Templates/Designs/Raureni/assets/img/gray-pattern.jpg) repeat left bottom;
+  background-size: 100%; }
+  .gray-bg.newsletter-container {
+    background-position: left bottom; }
 
 .media-12 {
   width: 100%; }
@@ -568,15 +422,23 @@ h1 {
 
 .media-body .left-column {
   display: block;
-  width: 40%;
-  margin: 0 55% 0 5%;
+  width: 75%;
+  margin: 0 10% 0 5%;
   text-align: left; }
+  @media (min-width: 1200px) {
+    .media-body .left-column {
+      width: 40%;
+      margin: 0 55% 0 5%; } }
 
 .media-body .right-column {
   display: block;
-  width: 40%;
-  margin: 0 5% 0 55%;
+  width: 75%;
+  margin: 0 5% 0 10%;
   text-align: left; }
+  @media (min-width: 1200px) {
+    .media-body .right-column {
+      width: 40%;
+      margin: 0 5% 0 55%; } }
 
 .reset-padding {
   padding: 0; }
@@ -669,24 +531,60 @@ h1 {
     color: #7a9017;
     text-decoration: none; }
 
+.size-12 p {
+  font-size: 1.2em; }
+
+.size-11 p {
+  font-size: 1.1em; }
+
+.size-1 p {
+  font-size: 1em; }
+
+.size-09 p {
+  font-size: 0.9em; }
+
+.size-08 p {
+  font-size: 0.8em; }
+
+.col-xs-3 .container {
+  width: 100%;
+  padding: 0; }
+
+.col-xs-3 .container .wide-column {
+  padding: 0 10px 0 0; }
+
 .col-xs-6 .container {
-  width: 100%; }
+  width: 100%;
+  padding: 0; }
+
+.col-xs-6 .container .wide-column {
+  padding: 0 10px 0 0; }
 
 .col-xs-6 .media-body .left-column {
-  width: 46%;
-  margin: 0 44% 0 10%; }
+  width: 70%;
+  margin: 0 15% 0 5%; }
+  @media (min-width: 1281px) {
+    .col-xs-6 .media-body .left-column {
+      width: 40%;
+      margin: 0 55% 0 5%; } }
 
 .col-xs-6 .media-body .right-column {
-  width: 46%;
-  margin: 0 10% 0 44%; }
+  width: 70%;
+  margin: 0 5% 0 15%; }
+  @media (min-width: 1281px) {
+    .col-xs-6 .media-body .right-column {
+      width: 40%;
+      margin: 0 5% 0 55%; } }
 
 .main-nav {
-  position: relative;
   background-color: transparent;
-  padding: 3em 0 0 0;
+  padding: 32px 0 0 0;
   display: inline-block;
   margin-left: -10px;
   margin-right: -10px; }
+  @media (min-width: 992px) {
+    .main-nav {
+      padding: 45px 0 0 0; } }
   .main-nav:before,
   .main-nav:after {
     content: " ";
@@ -696,7 +594,6 @@ h1 {
   .main-nav ul {
     list-style-type: none;
     padding-left: 0px;
-    position: relative;
     text-align: right; }
     .main-nav ul:before,
     .main-nav ul:after {
@@ -717,7 +614,7 @@ h1 {
     background-color: transparent;
     color: #808080;
     font-weight: 400;
-    padding: 0.2em 0;
+    padding: 5px 0;
     font-size: 1em;
     color: #9b9b9b;
     text-transform: uppercase;
@@ -731,15 +628,15 @@ h1 {
       color: #7a9017; }
     .main-nav a:hover, .main-nav a.active {
       border-bottom: 2px solid #7a9017; }
-  .main-nav .dropdown a:after {
-    font-family: "FontAwesome";
-    content: "\f107";
-    font-size: 0.8em;
-    margin-left: 0.5em; }
-  .main-nav .dropdown:hover .dropdown-menu {
-    display: inline-block; }
+  .main-nav .dropdown {
+    position: relative; }
+    .main-nav .dropdown a:after {
+      font-family: "FontAwesome";
+      content: "\f107";
+      font-size: 0.8em;
+      margin-left: 0.5em; }
   .main-nav .dropdown:hover a {
-    color: #808080;
+    color: #7a9017;
     border-bottom: 2px solid #7a9017; }
   .main-nav .dropdown-menu {
     display: none;
@@ -747,22 +644,22 @@ h1 {
     position: absolute;
     top: 100%;
     left: -50%;
-    padding: 20px 0 0 0;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.175);
+    box-shadow: none;
     border: none;
-    background: none;
+    background: #fff;
     text-align: left;
-    width: 370px; }
-    .main-nav .dropdown-menu li {
-      float: none; }
-    .main-nav .dropdown-menu:before,
-    .main-nav .dropdown-menu:after {
-      content: " ";
-      display: table; }
-    .main-nav .dropdown-menu:after {
-      clear: both; }
+    width: 300%;
+    z-index: 999;
+    float: none;
+    margin: 0;
+    opacity: 0;
+    background: transparent;
+    padding-top: 30px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
     .main-nav .dropdown-menu .level-2 {
-      padding: 0.2em 0 0 0; }
+      padding: 0; }
       .main-nav .dropdown-menu .level-2 a {
         display: inline-block;
         padding: 0.2em 1em;
@@ -791,6 +688,10 @@ h1 {
   .main-nav .teaser {
     float: left; }
 
+.drawer .main-nav .dropdown .dropdown-menu {
+  opacity: 1;
+  display: inline-block; }
+
 .home-slider:before,
 .home-slider:after {
   content: " ";
@@ -817,66 +718,151 @@ h1 {
     font-family: 'Amatic SC';
     font-style: normal;
     font-weight: 600;
-    max-width: 40%; }
+    max-width: 35%; }
   .flex-caption p {
     margin: 0;
     padding: 1em 0 0 2.5em;
     color: #fff;
     font-size: 1.5em;
     line-height: 1.5;
-    max-width: 40%; }
+    max-width: 35%; }
 
 .header {
-  margin: 0 0 -1em 0;
+  margin: 0 0 0 0;
   z-index: 2;
   position: relative;
-  padding: 0 0 30px 0;
-  background: url("/Files/Templates/Designs/Raureni/assets/img/header-bg.png") repeat-x left bottom; }
+  padding: 0 0 5px 0;
+  background-color: #fff;
+  position: relative; }
   .header:before,
   .header:after {
     content: " ";
     display: table; }
   .header:after {
     clear: both; }
+  .header:before {
+    content: "";
+    background: url("/Files/Templates/Designs/Raureni/assets/img/header-bg.png") no-repeat left bottom;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out; }
+  .header:after {
+    content: "";
+    background: url("/Files/Templates/Designs/Raureni/assets/img/header-bg.png") no-repeat left bottom;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    bottom: -35px;
+    left: 0;
+    z-index: 2; }
   .header .logo {
     position: relative;
+    float: left;
+    width: 16.66667%;
     min-height: 1px;
     padding-left: 10px;
     padding-right: 10px;
     padding-left: 0;
-    margin: 1em 0 0 0; }
-    @media (min-width: 992px) {
-      .header .logo {
-        float: left;
-        width: 50%; } }
+    margin: 1em 0 0 0;
+    position: static; }
+    .header .logo img {
+      max-height: 65px; }
   .header .middle {
     position: relative;
+    float: left;
+    width: 83.33333%;
     min-height: 1px;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 0.9em;
     padding-right: 0;
-    text-align: right; }
-    @media (min-width: 992px) {
-      .header .middle {
-        float: left;
-        width: 50%; } }
+    text-align: right;
+    position: static; }
+  .header .languages {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin: 0 0 0 1em; }
+    .header .languages .language-icon {
+      display: block;
+      width: 34px;
+      height: 35px;
+      margin: 0 0 0 0.3em;
+      background: url("/Files/Templates/Designs/Raureni/assets/img/language.png") no-repeat left bottom; }
+      .header .languages .language-icon:hover {
+        background-position: left top; }
+    .header .languages ul {
+      position: absolute;
+      top: 100%;
+      left: -100%;
+      z-index: 9999;
+      display: none;
+      margin: 0 0 0 -1.4em;
+      -webkit-transition: all 0.3s ease-out;
+              transition: all 0.3s ease-out; }
+      .header .languages ul:before {
+        content: "";
+        width: 100%;
+        height: 14px;
+        display: block;
+        margin: 0 0 -2px 0;
+        background: url("/Files/Templates/Designs/Raureni/assets/img/language-arrow.png") no-repeat center top; }
+      .header .languages ul li {
+        display: block;
+        list-style-type: none;
+        text-align: center;
+        margin: 0;
+        padding: 0; }
+      .header .languages ul a {
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.3em 0;
+        display: block;
+        font-size: 1.1em;
+        min-width: 162px;
+        background: url("/Files/Templates/Designs/Raureni/assets/img/language-menu-item.png") no-repeat left top;
+        background-size: 100% 100%; }
+    .header .languages:hover ul {
+      display: block; }
+  .header.drawer:before {
+    opacity: 1; }
 
 .footer {
-  padding: 3em 0 1em 0;
+  padding: 1em 0 1em 0;
   font-size: 0.8em;
   color: #808080;
   line-height: 1.5;
-  margin: -1em 0 0 0;
+  margin: 0;
   z-index: 2;
-  position: relative;
-  background: url("/Files/Templates/Designs/Raureni/assets/img/footer-bg.png") repeat-x left top; }
+  background-color: #fff;
+  position: relative; }
   .footer:before,
   .footer:after {
     content: " ";
     display: table; }
   .footer:after {
     clear: both; }
+  .footer:before {
+    content: "";
+    background: url("/Files/Templates/Designs/Raureni/assets/img/footer-bg.png") no-repeat left top;
+    background-color: transparent;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 35px;
+    top: -35px;
+    left: 0;
+    z-index: 2; }
   .footer .logo {
     display: block;
     margin: 0 0 1em 0;
@@ -1047,10 +1033,11 @@ h1 {
     .homepage-box .content-box .item-button {
       text-decoration: none;
       display: inline-block;
-      padding: 0.5em 1em;
+      padding: 0.6em 0;
       font-weight: 600;
       line-height: 1;
       color: #fff;
+      text-align: center;
       background: #7a9017; }
       .homepage-box .content-box .item-button:hover {
         background: #00800f;
@@ -1122,10 +1109,11 @@ h1 {
     .blog-list .item .item-button {
       text-decoration: none;
       display: inline-block;
-      padding: 0.5em 1em;
+      padding: 0.6em 0;
       font-weight: 600;
       line-height: 1;
       color: #fff;
+      text-align: center;
       color: #7a9017;
       background: none;
       padding: 0;
@@ -1174,13 +1162,21 @@ h1 {
     font-family: 'Amatic SC';
     font-style: normal;
     font-weight: 600;
-    font-size: 3.7em; }
+    font-size: 3.7em;
+    margin: 0.2em 0 0.2em 0; }
   .newsletter input[type="text"] {
     margin: 0 1em 0 0;
     padding: 0.3em 1em;
     background: #fff;
     color: #808080;
     width: 50%; }
+  .newsletter .newsletter-icon {
+    background: url("/Files/Templates/Designs/Raureni/assets/img/newsletter-envelope.png") no-repeat left top;
+    float: right;
+    width: 181px;
+    margin: 0;
+    height: 139px;
+    background-size: 100%; }
 
 .box {
   padding-bottom: 1em;
@@ -1196,7 +1192,7 @@ h1 {
     display: inline-block;
     text-decoration: none; }
     .box a img {
-      width: 100%; }
+      width: 90%; }
   .box .item-title {
     font-size: 1.2em;
     font-weight: 600;
@@ -1223,10 +1219,11 @@ h1 {
   .box .item-button {
     text-decoration: none;
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0.6em 0;
     font-weight: 600;
     line-height: 1;
     color: #fff;
+    text-align: center;
     background: #7a9017;
     margin: 0 1.5em;
     font-size: 0.9em;
@@ -1240,20 +1237,9 @@ h1 {
   margin: 0 10px 10px;
   font-size: 1.6em;
   text-transform: uppercase; }
-  .category-header:after {
-    content: "//";
-    margin-left: 0.2em;
-    margin-right: 0.2em; }
 
 .category-page {
-  margin-left: -10px;
-  margin-right: -10px; }
-  .category-page:before,
-  .category-page:after {
-    content: " ";
-    display: table; }
-  .category-page:after {
-    clear: both; }
+  margin: 3em 0 0 0; }
   .category-page .category-banner {
     padding: 0px 10px; }
   .category-page .main {
@@ -1262,12 +1248,23 @@ h1 {
     width: 100%;
     min-height: 1px;
     padding-left: 10px;
-    padding-right: 10px; }
+    padding-right: 10px;
+    padding: 0; }
+
+.categories .category {
+  background: url("/Files/Templates/Designs/Raureni/assets/img/categories-bg.png") repeat-x left bottom; }
+
+.categories .category-box {
+  width: auto;
+  padding: 0 0 0 2em; }
+
+.categories .category-box:first-child {
+  padding: 0; }
 
 .product-list--category {
   margin-left: -10px;
   margin-right: -10px;
-  padding: 3em 0 0 0; }
+  padding: 0 0 1em 0; }
   .product-list--category:before,
   .product-list--category:after {
     content: " ";
@@ -1282,7 +1279,7 @@ h1 {
     clear: both; }
   .product-list--category .product-box {
     padding-bottom: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     background-color: #fff;
     -webkit-transition: ease-in, 0.2s;
     transition: ease-in, 0.2s; }
@@ -1295,11 +1292,10 @@ h1 {
     .product-list--category .product-box .product-item-title {
       font-size: 0.9em;
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.3;
       text-align: left;
       min-height: 2em;
-      max-width: 50%;
-      margin: 1em auto 0;
+      margin: 0.5em 1em 0;
       color: #7a9017;
       text-align: center; }
       @media (min-width: 768px) {
@@ -1310,7 +1306,7 @@ h1 {
           min-height: 2em; } }
       @media (min-width: 1200px) {
         .product-list--category .product-box .product-item-title {
-          min-height: 4em; } }
+          min-height: 3em; } }
   .product-list--category .item {
     position: relative;
     float: left;
@@ -1326,19 +1322,24 @@ h1 {
     min-height: 1px;
     padding-left: 10px;
     padding-right: 10px;
-    min-height: 230px; }
+    min-height: 215px; }
     @media (min-width: 768px) {
       .product-list--category .item {
         float: left;
-        width: 50%; } }
+        width: 33.33333%; } }
     @media (min-width: 992px) {
       .product-list--category .item {
         float: left;
-        width: 20%; } }
+        width: 25%; } }
+    @media (min-width: 768px) {
+      .product-list--category .item {
+        min-height: 300px; } }
     .product-list--category .item a {
       text-decoration: none; }
       .product-list--category .item a img {
-        width: 100%; }
+        width: 90%;
+        margin: 0 auto;
+        display: block; }
   .product-list--category .category-paragraph {
     position: relative;
     float: left;
@@ -1384,11 +1385,77 @@ h1 {
       font-weight: 400;
       color: #808080;
       max-width: 80%; }
+  .product-list--category .category-items {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;
+    margin-right: -10px; }
+    @media (min-width: 768px) {
+      .product-list--category .category-items {
+        float: left;
+        width: 100%; } }
+    @media (min-width: 992px) {
+      .product-list--category .category-items {
+        float: left;
+        width: 80%; } }
+    .product-list--category .category-items:before,
+    .product-list--category .category-items:after {
+      content: " ";
+      display: table; }
+    .product-list--category .category-items:after {
+      clear: both; }
+
+.show-more-height {
+  height: 300px;
+  width: 100%;
+  overflow: hidden; }
+
+.show-more {
+  clear: both;
+  float: right;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #7a9017;
+  width: 176px;
+  text-align: center;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  background: url("/Files/Templates/Designs/Raureni/assets/img/show-more.png") no-repeat center center; }
+  .show-more:after {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0 0 0 0.5em;
+    display: inline-block; }
+  .show-more:hover:after {
+    -webkit-transform: rotate(-180deg);
+        -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg); }
+  .show-more.opened:after {
+    content: "\f0d8"; }
+  .show-more.opened:hover:after {
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg); }
 
 .product-page {
   margin-left: -10px;
   margin-right: -10px;
-  padding-top: 4em; }
+  padding-top: 4em;
+  padding-bottom: 3em; }
   .product-page:before,
   .product-page:after {
     content: " ";
@@ -1456,7 +1523,7 @@ h1 {
     min-height: 1px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-right: 0;
+    padding: 0;
     margin-bottom: 10px; }
     @media (min-width: 768px) {
       .product-image .main-image {
@@ -1472,7 +1539,9 @@ h1 {
         width: 91.66667%; } }
     .product-image .main-image .button-green {
       font-size: 1em;
-      margin: 1em auto 0 auto; }
+      margin: 1em auto 0 auto;
+      display: block;
+      padding: 0.7em 0 0.6em 0; }
     @media (min-width: 992px) {
       .product-image .main-image {
         float: left; } }
@@ -1480,6 +1549,13 @@ h1 {
       .product-image .main-image {
         padding-right: 10px;
         padding: 0; } }
+
+.bg-btn, .bg-btn:hover, .main-image .button-green.bg-btn, .main-image .button-green.bg-btn:hover {
+  background: url("/Files/Templates/Designs/Raureni/assets/img/button-green.png") no-repeat left top transparent;
+  background-size: 100%;
+  font-size: 0.9em;
+  padding-left: 2em;
+  padding-right: 2em; }
 
 .product-related-list {
   position: relative;
@@ -1523,10 +1599,11 @@ h1 {
     font-size: 3em;
     line-height: 1;
     color: #00800f;
-    margin: 0 0 1em 0; }
+    margin: 0 0 0.8em 0; }
   .product-middle-content .product-info p {
     font-size: 0.9em;
-    color: #808080; }
+    color: #808080;
+    margin: 0 0 10px 0; }
   .product-middle-content .product-info ul {
     margin: 0;
     padding: 0 0 0 1em; }
@@ -1537,11 +1614,18 @@ h1 {
     line-height: 1.5;
     padding: 0 0 0 1em; }
   .product-middle-content .icons {
-    margin: 1em auto 0 auto; }
+    margin: 2em auto 2em auto; }
     .product-middle-content .icons img {
       display: inline-block;
       margin: 0 0.5em 0 0;
       max-width: 25%; }
+
+.fb-icons {
+  margin: 0 auto; }
+  .fb-icons img {
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+    width: auto; }
 
 .product-right-content {
   position: relative;
@@ -1666,10 +1750,11 @@ h1 {
     .product-banners .item .item-button {
       text-decoration: none;
       display: inline-block;
-      padding: 0.5em 1em;
+      padding: 0.6em 0;
       font-weight: 600;
       line-height: 1;
       color: #fff;
+      text-align: center;
       background: #7a9017; }
       .product-banners .item .item-button:hover {
         background: #00800f;
@@ -1694,7 +1779,7 @@ h1 {
     font-size: 1.2em;
     font-weight: 400;
     color: #808080;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 2em 0;
     text-align: left; }
   .product-recommended .button-green {
     font-size: 0.8em;
@@ -1712,7 +1797,7 @@ h1 {
     .product-recommended .product-list .item {
       position: relative;
       float: left;
-      width: 50%;
+      width: 100%;
       min-height: 1px;
       padding-left: 10px;
       padding-right: 10px;
@@ -1727,25 +1812,50 @@ h1 {
       @media (min-width: 768px) {
         .product-recommended .product-list .item {
           float: left;
-          width: 50%; } }
+          width: 100%; } }
       @media (min-width: 992px) {
         .product-recommended .product-list .item {
           float: left;
-          width: 25%; } }
+          width: 100%; } }
     .product-recommended .product-list .item-title {
       font-size: 1em;
       text-align: center;
       margin: 1em auto 0;
       display: block;
-      max-width: 55%; }
+      max-width: 80%;
+      min-height: 1em; }
+    .product-recommended .product-list img {
+      max-width: 80%;
+      margin: 0 auto; }
+  .product-recommended .flex-control-nav {
+    display: none; }
+  .product-recommended .flex-direction-nav a {
+    opacity: 1 !important;
+    cursor: pointer; }
+  .product-recommended .flex-direction-nav a:hover, .product-recommended .flex-direction-nav a:focus {
+    outline: 0px auto -webkit-focus-ring-color; }
+  .product-recommended .flex-direction-nav a:before {
+    color: #000; }
+  .product-recommended .flex-direction-nav .flex-prev {
+    left: -30px; }
+  .product-recommended .flex-direction-nav .flex-next {
+    right: -30px; }
 
 .article-page {
-  padding: 0px; }
+  padding: 3em 0 1em 0;
+  margin-left: -10px;
+  margin-right: -10px; }
+  .article-page:before,
+  .article-page:after {
+    content: " ";
+    display: table; }
+  .article-page:after {
+    clear: both; }
   .article-page h1 {
     font-family: 'Amatic SC';
     font-style: normal;
     font-weight: 600;
-    margin: 0.2em 0;
+    margin: 0.3em 0;
     font-size: 3em;
     color: #00800f;
     padding-left: 1em;
@@ -1757,7 +1867,10 @@ h1 {
       .article-page h1 {
         font-size: 1.5em; } }
 
-.blog-category {
+.category {
+  background: url("/Files/Templates/Designs/Raureni/assets/img/categories-bg.png") repeat-x left bottom; }
+
+.category-box {
   position: relative;
   float: left;
   width: 50%;
@@ -1772,25 +1885,28 @@ h1 {
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px;
+  padding: 0;
   text-align: center; }
   @media (min-width: 768px) {
-    .blog-category {
+    .category-box {
       float: left;
       width: 50%; } }
   @media (min-width: 992px) {
-    .blog-category {
+    .category-box {
       float: left;
       width: 25%; } }
-  .blog-category img, .blog-category a {
+  .category-box img, .category-box a {
     width: 100%;
     display: block;
     text-decoration: none; }
-  .blog-category span {
+  .category-box span {
     font-weight: 600;
     color: #808080;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    display: block;
+    padding: 1.2em 0 1.7em;
     text-transform: uppercase; }
-  .blog-category a:hover span {
+  .category-box a:hover span {
     color: #7a9017; }
 
 .article-aside-list {
@@ -1827,7 +1943,9 @@ h1 {
       font-size: 0.8em; }
     .article-aside-list .newsletter input[type="submit"] {
       font-size: 0.8em;
-      margin: 1em 0 0 0; }
+      margin: 1em 0 0 0;
+      width: 100%;
+      min-width: 100%; }
   .article-aside-list h3 {
     font-family: 'Amatic SC';
     font-style: normal;
@@ -1984,11 +2102,17 @@ h1 {
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px;
-  padding: 0 0 2em 0;
+  padding: 0 0 0.5em 0;
   margin-right: 20px;
+  margin-bottom: 2em;
   background: #fff; }
   .article img {
     width: 100%; }
+  .article .fb-icons {
+    margin: 0 0 0 2em;
+    display: inline-block; }
+    .article .fb-icons img {
+      width: auto; }
   .article .post-description {
     font-size: 0.8em;
     line-height: 1.5;
@@ -2011,10 +2135,20 @@ h1 {
   font-size: 1em;
   font-weight: 600;
   text-transform: uppercase;
-  margin: 1em 0 0 0;
+  margin: 0.5em 0 0 0;
   text-decoration: none; }
   .view-all:hover, .next-article:hover {
     color: #7a9017; }
+
+.prev-article {
+  background: url("/Files/Templates/Designs/Raureni/assets/img/arrow-left.png") no-repeat left top;
+  padding: 0 0 0 3em;
+  margin: 0 0 2em 0; }
+
+.next-article {
+  background: url("/Files/Templates/Designs/Raureni/assets/img/arrow-right.png") no-repeat right top;
+  padding: 0 3em 0 0;
+  margin: 0 0 2em 0; }
 
 .contact-page h2 {
   font-family: 'Amatic SC';

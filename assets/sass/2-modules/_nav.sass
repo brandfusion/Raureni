@@ -1,13 +1,16 @@
 .main-nav	
 	// border-bottom: 2px solid $blue
-	position: relative
+	// position: relative
 	background-color: transparent
-	padding: 3em 0 0 0
+	padding: 32px 0 0 0
 	display: inline-block
+	@media (min-width: $screen-md-min)
+		padding: 45px 0 0 0
+
 	+make-row   //SWITCH
 	ul
 		+h-nav
-		position: relative
+		// position: relative
 		text-align: right
 	ul li 
 		float: none
@@ -17,7 +20,7 @@
 	a
 		+nav-level-1(transparent, $primary, transparent, $secondary)
 		font-weight: 400
-		padding: 0.2em 0
+		padding: 5px 0
 		font-size: 1em
 		color: $light-gray
 		text-transform: uppercase
@@ -26,33 +29,39 @@
 		&:hover, &.active 
 			border-bottom: 2px solid $secondary
 
-	.dropdown					
+	.dropdown	
+		position: relative				
 		a:after
 			font-family: "FontAwesome"
 			content: "\f107"
 			font-size: 0.8em
 			margin-left: 0.5em
-	.dropdown:hover
-		.dropdown-menu
-			display: inline-block
+	.dropdown:hover		
 		a
-			color: $dark-gray
+			color: $green
 			border-bottom: 2px solid $secondary		
 	.dropdown-menu
 		display: none
-		+v-nav
-		+clearfix
+		list-style-type: none
 		position: absolute
 		top: 100%
 		left: -50%
-		padding: 20px 0 0 0
-		box-shadow: 0 0 0 rgba(0,0,0,.175)
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0.175)
+		box-shadow: none
 		border: none
-		background: none
+		background: #fff
 		text-align: left
-		width: 370px
+		width: 300%
+		z-index: 999
+		float: none
+		margin: 0
+		opacity: 0
+		background: transparent
+		padding-top: 30px
+		-webkit-transition: all 0.3s ease-out
+		transition: all 0.3s ease-out
 		.level-2	
-			padding: 0.2em 0 0 0		
+			padding: 0		
 			a
 				+nav-level-2(transparent, $primary, transparent, $secondary)
 				text-transform: uppercase
@@ -72,3 +81,7 @@
 	.teaser
 		float: left
 								
+
+.drawer .main-nav .dropdown .dropdown-menu								
+	opacity: 1
+	display: inline-block

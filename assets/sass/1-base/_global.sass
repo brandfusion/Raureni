@@ -1,9 +1,6 @@
 .container-wide
 	+clearfix
 	clear: both
-.gray-bg 
-	background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png)
-	padding: 0
 .container
 	+container-fixed
 	@media (min-width: $screen-sm-min)
@@ -57,16 +54,13 @@ h1
 
 .button-red
 	+button
-	background: $red
-	&:hover
-		background: $dark-red
-		color: #fff
-.button-green
+	background: url("/Files/Templates/Designs/Raureni/assets/img/button-red.png") no-repeat left top transparent
+	min-width: 284px
+	padding: 0.7em 0 0.6em 0
+.button-green, .button-green:hover
 	+button
-	background: $green	
-	&:hover
-		background: $dark-green	
-		color: #fff	
+	background: url("/Files/Templates/Designs/Raureni/assets/img/button-green.png") no-repeat left top transparent	
+	min-width: 228px
 .reset-padding
 	padding: 0
 
@@ -79,110 +73,16 @@ h1
 	img 
 		height: 100%
 		width: auto	
-.general-paragraph
-	+make-xs-column(12)	
-	+make-sm-column(12)
-	+make-md-column(6)		
-	height: 615px
-	line-height: 615px
-	overflow: hidden
-	float: none
-	display: block
-	padding: 0
-	color: #fff
-	width: 100%
-	text-align: right
-	
-	.item
-		width: 100%
-		position: relative
-		top: 50%
-		transform: translateY(-50%)
-		padding-left: 1em
-		padding-right: 1em
-		text-align: left	
-		line-height: 1	
-		display: inline-block
-
-		@media (min-width: $screen-sm-min)
-			padding-left: 1em
-			padding-right: 1em
-			width: 100%
-		@media (min-width: $screen-md-min)
-			padding-left: 4em
-			padding-right: 4em
-			width: 45%
-		@media (min-width: $screen-lg-min)
-			padding-left: 4em
-			padding-right: 4em
-			width: 45%
-		.item-subtitle
-			display: block
-			font-size: 1.3em
-			line-height: 1
-			margin: 0.5em 0px 0 0
-			color: #fff
-			text-transform: uppercase
-		.item-title
-			font-size: 3.7em
-			line-height: 1.2
-			display: block
-			text-align: left
-			margin: 0.2em 0 0 0
-			color: #fff
-			+special-font()
-		.item-details
-			display: block
-			font-size: 1.1em
-			line-height: 1.3
-			margin: 1em 0px 1.5em 0
-			color: #fff		
-		.item-button
-			+button
-			background: $green	
-			&:hover
-				background: $dark-green	
-				color: #fff		
-		&.white-text .item-subtitle, &.white-text .item-details
-			color: #fff
-		&.white-text .item-title
-			color: #fff
-					
-		&.dark-text .item-subtitle, &.dark-text .item-details
-			color: $dark-gray
-		&.dark-text .item-title
-			color: $dark-green
-
-	.green-box
-		padding: 1.5em 2em
-		background: $green
-		color: #fff
-		width: 100%
-		@media (min-width: $screen-sm-min)
-			width: 100%
-		@media (min-width: $screen-md-min)
-			width: auto
-		.item-title
-			font-size: 3em	
-			margin-bottom: 0.5em	
-		.item-details
-			font-size: 0.9em
-			line-height: 1.5
-		a
-			color: #fff		
-
-.container-wide .general-paragraph				
-	+make-xs-column(12)	
-	+make-sm-column(12)
-	+make-md-column(3)	
 
 
 // standard paragraph
 .white-bg
 	background: #fff
 .gray-bg 
-	background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/kindajean.png)
-
+	background: url(/Files/Templates/Designs/Raureni/assets/img/gray-pattern.jpg) repeat left bottom
+	background-size: 100%
+	&.newsletter-container
+		background-position: left bottom
 
 .media-12
 	width: 100%
@@ -206,14 +106,20 @@ h1
 	margin: 0
 .media-body .left-column
 	display: block
-	width: 40%
-	margin: 0 55% 0 5%	
-	text-align: left
+	width: 75%
+	margin: 0 10% 0 5%	
+	text-align: left		
+	@media (min-width: $screen-lg-min)
+		width: 40%
+		margin: 0 55% 0 5%			
 .media-body .right-column
 	display: block
-	width: 40%
-	margin: 0 5% 0 55%
-	text-align: left
+	width: 75%
+	margin: 0 5% 0 10%
+	text-align: left	
+	@media (min-width: $screen-lg-min)
+		width: 40%
+		margin: 0 5% 0 55%	
 .reset-padding 
 	padding: 0
 
@@ -291,13 +197,39 @@ h1
 		&:hover 
 			color: $green
 			text-decoration: none
-			
+
+.size-12 p 
+	font-size: 1.2em
+.size-11 p 
+	font-size: 1.1em
+.size-1 p 
+	font-size: 1em
+.size-09 p 
+	font-size: 0.9em
+.size-08 p 
+	font-size: 0.8em		
+
+.col-xs-3 
+	.container 
+		width: 100%	
+		padding: 0	
+	.container .wide-column 
+		padding: 0 10px 0 0	
 .col-xs-6 
 	.container 
 		width: 100%
+		padding: 0	
+	.container .wide-column 
+		padding: 0 10px 0 0	
 	.media-body .left-column
-		width: 46%
-		margin: 0 44% 0 10%
+		width: 70%
+		margin: 0 15% 0 5%	
+		@media (min-width: 1281px)
+			width: 40%
+			margin: 0 55% 0 5%	
 	.media-body .right-column
-		width: 46%
-		margin: 0 10% 0 44%
+		width: 70%
+		margin: 0 5% 0 15%
+		@media (min-width: 1281px)
+			width: 40%
+			margin: 0 5% 0 55%	
