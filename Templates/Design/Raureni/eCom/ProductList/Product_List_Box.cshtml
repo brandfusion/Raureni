@@ -1,0 +1,21 @@
+﻿<div class="category-items">  
+  <div class="show-more-height">   
+    
+      @foreach (LoopItem i in GetLoop("Products")){           
+        @Include("../../Custom/Products_loop_box.cshtml")
+      }                                    
+  </div>
+
+  @if(!string.IsNullOrWhiteSpace(GetGlobalValue("Global:Device.IsMobile"))) {
+    if (GetLoop("Products").Count > 2) {
+      <div class="show-more" data-open='@Translate("Vezi gama completă")' data-close='@Translate("Vezi mai puţin")'>@Translate("Vezi gama completă")</div> 
+      <div style="display: none;">@GetLoop("Products").Count</div> 
+    }
+  } 
+  else {
+    if (GetLoop("Products").Count > 4) {
+      <div class="show-more" data-open='@Translate("Vezi gama completă")' data-close='@Translate("Vezi mai puţin")'>@Translate("Vezi gama completă")</div> 
+      <div style="display: none;">@GetLoop("Products").Count</div> 
+    }
+  }
+</div>

@@ -1,0 +1,23 @@
+﻿<div class="footer">
+  <div class="container">
+    <div class="pull-left">
+      @if (GetInteger("DwAreaID").ToString() == "1"){
+      <a href="#"><img src="assets/img/logo-footer.png" class="logo img-responsive"></a>}else{
+         <a href="#"><img src="/Files/Images/logos/logo-footer_EN.png" class="logo img-responsive"></a>
+           }
+        <br />
+      <p>@GetValue("Item.Area.Adress")<br />
+      @Translate("Phone", "TEL"): @GetValue("Item.Area.Phone"), @Translate("Fax", "Fax"): @GetValue("Item.Area.Fax")<br />
+      @Translate("email", "E-mail") : <a href='mailto:@GetValue("Item.Area.Email")'>@GetValue("Item.Area.Email")</a></p>
+    </div>
+    <div class="pull-right align-right">
+      <br /><br />@Translate("Follow Us", "URMĂREŞTE-NE") :
+      <div class="social-media">
+        <a href='@GetValue("Item.Area.Facebook_Link")' target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>        
+        <a href='@GetValue("Item.Area.Youtube_Link")' target="_blank"><i class="fa fa-youtube-square fa-2x"></i></a>    
+    	<a href='@GetValue("Item.Area.Linkedin_Link")' target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      </div>
+      <p>COPYRIGHT 2015 ANNABELLA<br /> FABRICA DE CONSERVE RAURENI S.R.L.</p>      
+    </div>
+  </div>
+</div>

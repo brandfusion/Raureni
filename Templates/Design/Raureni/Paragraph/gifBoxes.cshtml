@@ -1,0 +1,92 @@
+﻿@{
+  var count = 0;
+}
+<div class='@GetString("Item.SetBackgroundBox")'>
+<div class='@GetString("Item.Container")' style="padding-top: 2em;">
+
+@foreach (LoopItem i in GetLoop("Item.Paragraph_List")){   
+   
+    <div class='homepage-boxes gif-boxes @i.GetString("Item.Paragraph_List.Column") reset-padding @i.GetString("Item.Paragraph_List.SetMargin")' data-gif='@i.GetString("Item.Paragraph_List.LinkText2")'>  
+
+  	  @if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Link"))) {
+ 	  <a href='@i.GetString("Item.Paragraph_List.Link")' @RenderOpenInANewWindow(i)>
+        <div class='media @i.GetString("Item.Paragraph_List.SetHeight")  @i.GetString("Item.Paragraph_List.SetTextSize")' @RenderImageBackground(i)>
+          @RenderHeading(i)           
+        </div>
+	  </a> 
+	  } else {
+		<div class='media @i.GetString("Item.Paragraph_List.SetHeight")  @i.GetString("Item.Paragraph_List.SetTextSize")' @RenderImageBackground(i)>
+          @RenderHeading(i)           
+        </div>
+	  }
+    </div>    
+	
+
+    @* <!--------- Heading ---------> *@
+    @helper RenderHeading(LoopItem i)
+    {
+      if(i.GetBoolean("Item.Paragraph_List.ShowTitle"))
+      {
+          if (i.GetString("Item.Paragraph_List.HeadingPosition") == "top") {
+            if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Title")))
+            {
+              string str_headingType = string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.HeadingType")) ? "h1" : i.GetString("Item.Paragraph_List.HeadingType");
+              @String.Format("<{0}>{1}</{0}>", str_headingType, i.GetString("Item.Paragraph_List.Title"))
+            }
+          }
+      }
+    }
+    
+    @helper RenderHeadinginline(LoopItem i)
+    {
+      if(i.GetBoolean("Item.Paragraph_List.ShowTitle"))
+      {
+          if (i.GetString("Item.Paragraph_List.HeadingPosition") == "inline") {	
+            if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Title")))
+            {
+              string str_headingType = string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.HeadingType")) ? "h1" : i.GetString("Item.Paragraph_List.HeadingType");
+              @String.Format("<{0}>{1}</{0}>", str_headingType, i.GetString("Item.Paragraph_List.Title"))
+            }
+          }
+      }
+    }
+    
+   
+    @* <!--------- Link ---------> *@
+    @helper RenderLink(LoopItem i)
+    {  
+      if(i.GetBoolean("Item.Paragraph_List.ShowButton"))
+      {
+        if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Link")) && !string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.LinkText")) )
+        {        
+            <a href='@i.GetString("Item.Paragraph_List.Link")' @RenderOpenInANewWindow(i) class='@i.GetString("Item.Paragraph_List.CustomLink")'>@i.GetString("Item.Paragraph_List.LinkText")</a>
+        }
+      }
+    }
+    
+    @* <!--------- OpenInANewWindow ---------> *@
+    @helper RenderOpenInANewWindow(LoopItem i) {
+      if(i.GetBoolean("Item.Paragraph_List.OpenInANewWindow")) { 
+        @: target="_blank" 
+      }
+    }
+      
+    
+    @* <!--------- ImageBackground ---------> *@
+    @helper RenderImageBackground(LoopItem i)
+    {
+	  if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Image")))
+      {	
+        string str_bg_image = System.Web.HttpContext.Current.Server.UrlEncode(i.GetString("Item.Paragraph_List.Image"));
+        string str_bg_position = i.GetString("Item.Paragraph_List.BgImagePosition");
+        if (i.GetString("Item.Paragraph_List.ImageType") == "background") 
+        {
+          @: style="background:url(@str_bg_image) no-repeat @str_bg_position; background-size:cover;";
+        }
+	  }
+    }
+	count++;
+
+}
+</div>
+</div>

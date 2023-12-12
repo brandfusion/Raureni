@@ -1,0 +1,59 @@
+﻿@MasterPageFile("Master/Master.cshtml")
+@{
+  int categoriesParagraphId =0;
+  Int32.TryParse(@Pageview.Area.Item["CategoriesParagraph_ID"].ToString(), out categoriesParagraphId);
+}
+@RenderParagraphContent(categoriesParagraphId)
+
+<div class="container-wide gray-bg">
+  <div class="container">
+    <div class="article-page">
+      
+      <div class="article-list">
+        <div class="article">                                                  
+            <h1>@GetValue("DwPageName")</h1>          
+            @{
+      
+              if (!string.IsNullOrEmpty(GetValue("Item.Imagine.Value").ToString())){
+                string imageClean = GetValue("Item.Imagine.Value").ToString().Substring(1);
+                <img src='/@imageClean' alt='@GetValue("DwPageName")' class="img-responsive" />                 
+              }
+            }
+ 
+            <div class="post-description">                              
+             	@GetValue("Item.Continut.Value") 
+              	@Translate("Posted in", "Postat in") 
+              	@foreach (LoopItem i in GetLoop("Item.Categorii.Options")){
+      				string cat = i.GetString("Item.Categorii.Option.Label");  
+              		string catId = i.GetString("Item.Categorii.Option.Value");
+              		bool isSelected = i.GetBoolean("Item.Categorii.Option.IsSelected");                 		
+              		
+              		if (isSelected) {
+					<a href='/Default.aspx?ID=@Pageview.Area.Item["CategoriesPage_ID"]&categorie=@(catId)'>@cat</a> 
+          			}
+				}
+              	@* | Lasa-ne comentariul tau--> *@
+            </div>  
+            <div class="fb-icons">
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56cc7fe6055c0bc7"></script>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<div class="addthis_native_toolbox"></div>
+            </div>
+			<div class="next-prev">
+                <ul class="dwnavigation" id="blog-posts" data-settings="template:NextPrevious.xslt;expandmode:all;"></ul>
+        	</div>
+        </div>            
+      </div>
+      <div class="article-aside-list ">
+        @RenderPageContent(16) 
+		
+        @Include("Custom/AbonareBlog.cshtml")        
+        @Include("Custom/SocialMedia.cshtml")  
+      </div>
+    
+    </div>        
+  </div>
+</div>
+

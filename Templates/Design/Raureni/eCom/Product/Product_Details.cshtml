@@ -1,0 +1,222 @@
+﻿@Include("../../Custom/GlobalVariables.cshtml")
+@{	
+    string imagePath = "/Files/Images/Ecom/Products/";
+	string imageCustomName = GetString("Ecom:Product.Name").Replace(" ","-").Replace("/","-") + "-" + GetValue("Ecom:Product.Number") + "_";
+	
+	string filePattern = imageCustomName + "*.png";
+	string dir = System.Web.HttpContext.Current.Server.MapPath(imagePath + "Large/");
+    
+	string productName = GetString("Ecom:Product.Name");	
+	string productId = GetString("Ecom:Product.ID");
+	string productImage = GetString("Ecom:Product.ImageLarge.Default.Clean");
+	string productShortDescription = GetString("Ecom:Product.ShortDescription");    
+
+ string categoryName = "";
+  var groupId = GetString("Ecom:Product.PrimaryGroupID");
+  foreach (LoopItem category in GetLoop("ProductGroups")) {
+    if(category.GetString("Ecom:Group.ID") == groupId) {
+      categoryName = category.GetString("Ecom:Group.Name");
+    }
+    
+  }
+	string badgePath = "/Files/Images/icons/";
+
+	if(isEn){
+		badgePath = badgePath + "badges-en"; 
+	}else{
+		badgePath = badgePath + "badges";
+	}
+}
+
+
+
+<!-- content -->    
+<div class="container wrapper">
+  
+  <meta property="og:image" content="@productImage" />
+  <meta property="og:title" content="@productName" />
+  <meta property="og:description" content="@productShortDescription" />
+  <meta property="og:type" content='product' />
+  
+  <div style="display:none;">
+  	@badgePath
+  </div>
+  
+  
+  <div class="product-page">        
+    <div class="product-item">
+      <div class="product-image">
+        <div class="main-image"> 
+          @if(!string.IsNullOrEmpty(productImage)){	
+          	  <img src="/Admin/Public/GetImage.ashx?Image=@productImage&Format=jpg&Width=340&Compression=90" alt="@productName" class="product-item-image img-responsive" itemprop="image" />          
+          } else {
+              <img src="/Files/Images/Ecom/no-image.png" class="product-item-image img-responsive">
+          }
+        </div>
+      </div>
+      <div class="product-middle-content">
+        <h1 class="product-title">@productName</h1>                        
+        <div class="product-info">              
+            @productShortDescription
+			<div class="product-badges">           		
+                @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.fruct.Value"))) { 
+                <div class="badge-item">           	                    
+					<img src='@( badgePath + "/fruct" + GetValue("Ecom:Product:Field.fruct.Value") + ".png")' alt="" class="img-responsive" />                 	
+                </div>
+                }                
+                @if (GetBoolean("Ecom:Product:Field.faraConservanti.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/fara-conservanti.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.faraIndulcitoriArtificiali.Value")) {
+                <div class="badge-item">           	                     
+                	<img src='@( badgePath + "/fara-indulcitori-artificiali.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.faraZahar.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/fara-zahar.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.fructIntreg.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/fruct-intreg.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.legumeProaspete.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/legume-proaspete.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.ProdusInRomania.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/produs-romania.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.ContinutCaloricScazut.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/caloric-scazut.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+                @if (GetBoolean("Ecom:Product:Field.DulceNatural.Value")) {
+                <div class="badge-item">                     
+                	<img src='@( badgePath + "/100dulce.png")' alt="" class="img-responsive" />                     
+                </div>
+                }
+            </div>
+            <div class="fb-icons">
+              @* <img src="/@areaLayoutPath/assets/img/like.png" />
+              <img src="/@areaLayoutPath/assets/img/share.png" /> *@
+              
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+			  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56587a4d03409a74" async="async"></script>
+
+              
+              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+			  <div class="addthis_native_toolbox"></div>
+           </div>
+        </div>                      
+      </div> 
+      <div class="product-right-content">
+        <div class="product-bg">
+          <h4>@Translate("Nutrition declaration", "Declaraţie nutriţională")</h4>
+		  <p>@Translate("Average values", "Valori medii pentru 100 g produs"):</p>
+		     	      
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.valoareEnergetica.Value")))
+            {<text>
+		  		<p>@Translate("Energy value", "Valoare energetică") @GetValue("Ecom:Product:Field.valoareEnergetica.Value")</p>
+		  </text>} 
+
+		  <div class="declaration">
+          @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.proteine.Value")))
+            {<text>
+          		<label><span>@Translate("Proteins", "Proteine")</span><span class="value">@GetValue("Ecom:Product:Field.proteine.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.glucide.Value")))
+            {<text>
+          		<label><span>@Translate("Carbohydrates", "Glucide")</span><span class="value">@GetValue("Ecom:Product:Field.glucide.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.zaharuri.Value")))
+            {<text>
+          		<label><span>@Translate("sugars", "- din care zaharuri")</span><span class="value">@GetValue("Ecom:Product:Field.zaharuri.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.lipide.Value")))
+            {<text>
+          		<label><span>@Translate("Lipids", "Lipide")</span><span class="value">@GetValue("Ecom:Product:Field.lipide.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.acizi.Value")))
+            {<text>
+          		<label><span>@Translate("Fatty acids", "- din care acizi graşi saturaţi")</span><span class="value">@GetValue("Ecom:Product:Field.acizi.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.fibre.Value")))
+            {<text>
+          		<label><span>@Translate("Fibre", "Fibre")</span><span class="value">@GetValue("Ecom:Product:Field.fibre.Value") g</span></label>            
+          </text>} 
+		  @if(!string.IsNullOrEmpty(GetString("Ecom:Product:Field.sare.Value")))
+            {<text>
+          		<label><span>@Translate("Salt", "Sare")</span><span class="value">@GetValue("Ecom:Product:Field.sare.Value") g</span></label>            
+          </text>} 
+		  </div>
+          <p class="required">@Translate("*Consumul de referinţă al unui adult obişnuit (8400kJ/2000kcal)")</p>
+
+        </div>
+      </div>          
+    </div>
+    
+  <div class="hidden">
+   
+
+   
+     
+
+  </div>  
+
+
+
+  @if (GetLoop("ProductRelatedGroups").Count > 0) { 
+    foreach(var relatedGroup in GetLoop("ProductRelatedGroups")) {
+    <div class="col-xs-12">
+    <div class="product-list-wrapper" style="margin-top: 2em;">
+      <p class="product-list-heading">Produse din categoria @categoryName</p> 
+      <div class="product-list-carousel">
+         @foreach(LoopItem recommended in relatedGroup.GetLoop("RelatedProducts")) {
+                    string name = recommended.GetString("Ecom:Product.Name");
+                    string image = recommended.GetString("Ecom:Product.ImageLarge.Default.Clean");    
+                    string link = recommended.GetString("Ecom:Product.Link.Clean");
+                    
+                    
+                      <div class="item">
+                        <div class="box">
+                          <a href="@link">
+                             @{
+                                if(!string.IsNullOrEmpty(@image))
+                                {
+                                      <span class="item-image"><img src="/Admin/Public/GetImage.ashx?Image=@image&Format=jpg&Width=220&Compression=90" class=" img-responsive" /></span>
+                                } 
+                                else {
+                                      <img src="/Files/Images/Ecom/no-image.png" class="product-item-image img-responsive" />
+                                }
+                             }   
+                                                    
+                             <span class="item-title">@name</span>                            
+                          </a>
+                        </div>
+                      </div>
+                    
+                    
+                }
+        </div>
+      <div class="product-list-navigation"></div>
+    </div>
+  </div>
+  } 
+ }
+
+
+
+
+       
+  </div>
+</div>

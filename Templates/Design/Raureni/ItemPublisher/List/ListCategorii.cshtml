@@ -1,0 +1,20 @@
+﻿@Include("../../Custom/GlobalVariables.cshtml")
+
+<div class="container-wide gray-bg">
+  <div class="category">  
+    <div class="container">
+      @foreach (LoopItem i in GetLoop("ItemPublisher:Items.List")){
+        string cat = i.GetString("ItemPublisher:Item.Name");
+        string catId = i.GetString("ItemPublisher:Item.Field.Id");
+        string catImage = i.GetString("ItemPublisher:Item.Image");
+        
+        <div class="category-box">
+          <a href='/Default.aspx?ID=@Pageview.Area.Item["CategoriesPage_ID"]&categorie=@(catId)'>
+            <img src="@catImage" alt="" />
+            <span>@cat</span>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</div>

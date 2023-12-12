@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>@GetValue("Title")</title>
+@GetValue("MetaTags")
+@GetValue("CopyRightNotice")
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+     
+    @{
+	string areaLayoutPath = "Files/Templates/" + Pageview.Area.Values["arealayout"].ToString();
+    areaLayoutPath = areaLayoutPath.Substring(0, areaLayoutPath.LastIndexOf("/"));
+
+	bool isEn =  Pageview.Area.ID == 2 ? true : false;
+	
+    
+
+}  
+    <link rel="icon" type="image/png" href="/@areaLayoutPath/assets/img/favicon.png">
+    <link rel="SHORTCUT ICON" href="/@areaLayoutPath/assets/img/favicon.ico">    
+      
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/@areaLayoutPath/assets/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="/@areaLayoutPath/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/@areaLayoutPath/assets/css/temp.css">
+    <link rel="stylesheet" type="text/css" href="/@areaLayoutPath/assets/css/fix.css">
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    @{
+    	string home = "";
+      	string contact = "";
+        if(GetInteger("DwPageID") == GetInteger("DwAreaFirstPageID")) {
+           home = "homepage";
+        }
+      	if(GetInteger("DwPageID") == GetInteger("Item.Area.ContactPage_ID")) {
+           contact = "contact-page";
+        }
+    }  
+      
+     <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-42529750-1', 'auto');
+        ga('send', 'pageview');
+      
+      </script>
+  @GetValue("Stylesheets")
+@GetValue("Javascripts")
+</head>
+  <body class="@home @contact">
+    
+    <div class="header-mobile">
+      <div class="logo">
+        @{      
+          string imagetag = GetValue("Item.Area.Logo").ToString();
+          if (!string.IsNullOrEmpty(imagetag)){
+          
+            string imageClean = GetValue("Item.Area.Logo").ToString().Substring(1);            
+            <a href='/Default.aspx?ID=@GetValue("DwAreaFirstPageID")'><img src='/@imageClean' name="logo" alt='@GetValue("Item.Area.Site_Name")' class="img-responsive"></a>
+          }
+        }
+      </div> 
+      @* <div class="languages-mobile">
+        <a href="#" class="language-icon"></a>
+        <ul>          
+          <li><a href="#">ENGLEZĂ</a></li>
+          <li><a href="#">ROMANĂ</a></li>
+        </ul>
+      </div>  *@
+      <div class="mobile-nav-trigger">                     
+          <i class="fa fa-bars"></i>
+      </div>
+    </div>	
+  
+    <div class="mobile-big-wrapper">
+        <div class="mobile-nav left-view">    
+          <div class="mobile-main-nav"> 
+             @RenderNavigation(new {
+                template = "MainNavigationMobile.xslt",
+                expandmode = "all",
+                id = "mobile-navigation",
+                startlevel = 1,
+                endlevel = 3
+             }) 
+          </div>          
+        </div>
+        
+        
+        <div class="mobile-wrapper">
+            <!-- header -->
+            <div class="header">       
+  <div class="container">
+        
+      <div class="logo">
+          @{      
+            if (!string.IsNullOrEmpty(imagetag)){          
+              string imageClean = GetValue("Item.Area.Logo").ToString().Substring(1);            
+              <a href='/Default.aspx?ID=@GetValue("DwAreaFirstPageID")'><img src='/@imageClean' name="logo" alt='@GetValue("Item.Area.Site_Name")' class="img-responsive"></a>
+            }
+          }
+      </div>
+      <div class="middle">
+        <div class="main-nav">
+          @GetValue("DwNavigation(NavMainAll)")          
+        </div>  
+  
+          <div class="languages">
+          <a href="#" class="language-icon"></a>
+        <ul>
+                        @foreach (var language in GetLoop("Languages"))
+                        {
+                            string culture = language.GetString("Culture");
+                            //string languageImage = "/Admin/Images/Flags/flag_" + culture.Substring(3).ToLower() + ".png";											          				
+                      		
+                            string activeLang = "";
+                            if (language.GetBoolean("IsCurrent")) {
+                               activeLang = "active";
+                            }
+	
+                      
+                            if (!language.GetBoolean("IsCurrent"))
+                            {
+                                string languagePage = (language.GetBoolean("PageIsHidden")) ? language.GetString("FirstPageID") : language.GetString("PageID");
+                      <li><a href="Default.aspx?ID=@languagePage" hreflang="@culture.Substring(0,2).ToUpper()"><span class="lang-menu-item">@culture.Substring(0,2).ToUpper()</span></a></li>
+                            }
+
+                            else
+                            {
+                                string languagePage = (language.GetBoolean("PageIsHidden")) ? language.GetString("FirstPageID") : language.GetString("PageID");
+                 <li><a href="Default.aspx?ID=@languagePage" hreflang="@culture.Substring(0,2).ToUpper()"><span>@culture.Substring(0,2).ToUpper()</span></a></li>
+                            }
+                        }
+                    </ul>
+      </div>
+      @*
+       <div class="languages">
+          <a href="#" class="language-icon"></a>
+          <ul>          
+            <li><a href="#">ENGLEZĂ</a></li>
+            <li><a href="#">ROMANĂ</a></li>
+          </ul>
+        </div>*@
+      </div>  
+    
+  </div>
+</div>    
+            
+            
+
+<!-- slider -->
+<div class="home-slider">
+  <div class="flexslider" id="slider">@GetValue("DwContent(slider)")</div>
+</div>
+
+<!-- content -->
+@GetValue("DwContent(content)")
+
+<div class="container-wide gray-bg newsletter-container test">
+  <div class="container">        
+    <div class="newsletter">
+  <div class="newsletter-icon">&nbsp;</div>
+  <div class="newsletter-email">
+    @RenderParagraphContent(GetInteger("Item.Area.NewsletterParagraph_ID"))    
+  </div>
+</div>
+
+  
+
+  </div>
+</div>    
+        
+            <!-- footer -->
+            <div class="footer">
+  <div class="container">
+    <div class="pull-left">
+      @if (GetInteger("DwAreaID").ToString() == "1"){
+      <a href="#"><img src="/Files/Templates/Designs/Raureni/assets/img/logo-footer.png" class="logo img-responsive"></a>}else{
+         <a href="#"><img src="/Files/Images/logos/logo-footer_EN.png" class="logo img-responsive"></a>
+           }
+        <br>
+      <p>@GetValue("Item.Area.Adress")<br>
+      @Translate("Phone", "TEL"): @GetValue("Item.Area.Phone"), @Translate("Fax", "Fax"): @GetValue("Item.Area.Fax")<br>
+      @Translate("email", "E-mail") : <a href='mailto:@GetValue("Item.Area.Email")'>@GetValue("Item.Area.Email")</a></p>
+    </div>
+    <div class="pull-right align-right">
+      <br><br>@Translate("Follow Us", "URMĂREŞTE-NE") :
+      <div class="social-media">
+        <a href='@GetValue("Item.Area.Facebook_Link")' target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>        
+        <a href='@GetValue("Item.Area.Youtube_Link")' target="_blank"><i class="fa fa-youtube-square fa-2x"></i></a>    
+    	<a href='@GetValue("Item.Area.Linkedin_Link")' target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      </div>
+      <p>COPYRIGHT 2015 ANNABELLA<br> FABRICA DE CONSERVE RAURENI S.R.L.</p>      
+    </div>
+  </div>
+</div>   
+        </div>      
+    </div>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/js.cookie.js"></script>
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/jquery.bpopup.min.js"></script>
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/mobile-menu.js"></script> 
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/tinynav.min.js"></script>
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/carousel.js"></script>   	 
+    <script type="text/javascript" src="/@areaLayoutPath/assets/js/main.js"></script>
+  
+
+  
+    <div id="homeMovie" class="video-wrapper">
+        <div class="times">
+          <a href="#" close=""><i class="fa fa-times"></i></a>
+        </div>
+      <div class="video-container"><iframe class="youtube-content" width="560" height="315" src='https://www.youtube.com/embed/EG5mH_6Acis?version=3&enablejsapi=1' frameborder="0" allowfullscreen=""></iframe></div>
+    </div>  
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">@GetString("Item.Headline")</h4>
+          </div>
+          <div class="modal-body" id="yt-player">
+            @RenderParagraphContent(GetInteger("Item.Area.Video_Paragraph_ID")) 
+            @* <iframe width="900" height="506" src="https://www.youtube.com/embed/EG5mH_6Acis?rel=0&enablejsapi=1" frameborder="0" allowfullscreen="" style="width: 100%;"></iframe> *@
+          </div>      
+        </div>
+      </div>
+    </div>  
+
+   @* <div class="customPopUp">
+      <div class="close closePopup">×</div>
+      <img src="/Files/Images/anuga.jpeg" alt="" title="anuga">
+    </div>*@
+        
+  </body>
+</html>  

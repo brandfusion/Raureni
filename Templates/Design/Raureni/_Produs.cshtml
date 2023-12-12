@@ -1,0 +1,30 @@
+﻿@MasterPageFile("Master/Master.cshtml")
+
+@Include("Custom/Breadcrumb.cshtml")
+
+@* <div class="container-wide categories">
+  <div class="category product">  
+    <div class="container">
+      
+      @{ 
+      	var paragraphs = Dynamicweb.Content.Paragraph.GetParagraphsByPageID(12);
+        
+        <ul id="nav">
+      	@foreach (var paragraph in paragraphs)  
+        {
+      	  if(paragraph.ModuleSystemName == "eCom_Catalog") {
+          string anchorLink = System.Text.RegularExpressions.Regex.Replace(paragraph.Header, @"[^1-9a-zA-Z]+", "");
+          <li class="category-box">
+      		<a href="/Default.aspx?ID=12#@anchorLink"><span>@paragraph.Header</span></a>  
+    	  </li>
+      	  }
+        }
+      </ul>
+      }      
+      
+    </div>
+  </div>
+</div>  *@
+
+
+<div class="dwcontent" id="content" title="Main content" data-settings="template:StandardParagraph.cshtml;unwrap=true"></div>

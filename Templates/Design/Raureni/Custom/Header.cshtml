@@ -1,0 +1,56 @@
+﻿<div class="header">       
+  <div class="container">
+        
+      <div class="logo">
+          @{      
+            if (!string.IsNullOrEmpty(imagetag)){          
+              string imageClean = GetValue("Item.Area.Logo").ToString().Substring(1);            
+              <a href='/Default.aspx?ID=@GetValue("DwAreaFirstPageID")'><img src='/@imageClean' name="logo" alt='@GetValue("Item.Area.Site_Name")' class="img-responsive" /></a>
+            }
+          }
+      </div>
+      <div class="middle">
+        <div class="main-nav">
+          <ul class="dwnavigation" id="NavMainAll" data-settings="startlevel:1;endlevel:2;template:MainNavigation.xslt;expandmode:all;"></ul>          
+        </div>  
+  
+          <div class="languages">
+          <a href="#" class="language-icon"></a>
+        <ul>
+                        @foreach (var language in GetLoop("Languages"))
+                        {
+                            string culture = language.GetString("Culture");
+                            //string languageImage = "/Admin/Images/Flags/flag_" + culture.Substring(3).ToLower() + ".png";											          				
+                      		
+                            string activeLang = "";
+                            if (language.GetBoolean("IsCurrent")) {
+                               activeLang = "active";
+                            }
+	
+                      
+                            if (!language.GetBoolean("IsCurrent"))
+                            {
+                                string languagePage = (language.GetBoolean("PageIsHidden")) ? language.GetString("FirstPageID") : language.GetString("PageID");
+                      <li><a href="Default.aspx?ID=@languagePage" hreflang="@culture.Substring(0,2).ToUpper()"><span class="lang-menu-item">@culture.Substring(0,2).ToUpper()</span></a></li>
+                            }
+
+                            else
+                            {
+                                string languagePage = (language.GetBoolean("PageIsHidden")) ? language.GetString("FirstPageID") : language.GetString("PageID");
+                 <li ><a href="Default.aspx?ID=@languagePage" hreflang="@culture.Substring(0,2).ToUpper()"><span>@culture.Substring(0,2).ToUpper()</span></a></li>
+                            }
+                        }
+                    </ul>
+      </div>
+      @*
+       <div class="languages">
+          <a href="#" class="language-icon"></a>
+          <ul>          
+            <li><a href="#">ENGLEZĂ</a></li>
+            <li><a href="#">ROMANĂ</a></li>
+          </ul>
+        </div>*@
+      </div>  
+    
+  </div>
+</div>

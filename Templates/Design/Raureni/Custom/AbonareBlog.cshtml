@@ -1,0 +1,8 @@
+﻿<div class="newsletter">  
+  @{
+      int newsletterBlogParagraph =0;
+      Int32.TryParse(Pageview.Area.Item["NewsletterBlogParagraph_ID"].ToString(), out newsletterBlogParagraph);
+  }
+  
+  @RenderParagraphContent(newsletterBlogParagraph)    
+</div>

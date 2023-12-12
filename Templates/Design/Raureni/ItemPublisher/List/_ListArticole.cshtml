@@ -1,0 +1,97 @@
+﻿@Include("../../Custom/GlobalVariables.cshtml")
+@{
+	var events = GetLoop("ItemPublisher:Items.List");
+}
+
+<div class="container-wide gray-bg">
+<div class="category">  
+  <div class="container">
+    <div class="category-box">
+      <a href="#">
+        <img src="/@areaLayoutPath/assets/img/blog-category-1.png" alt="" />
+      	<span>ALIMENTATIE SI SANATATE</span>
+      </a>
+    </div>
+    <div class="category-box">
+      <a href="#">
+        <img src="/@areaLayoutPath/assets/img/blog-category-2.png" alt="" />
+      	<span>RETETE CU SUFLET</span>
+      </a>
+    </div>
+    <div class="category-box">
+      <a href="#">
+        <img src="/@areaLayoutPath/assets/img/blog-category-3.png" alt="" />
+      	<span>GRIJA PENTRU TINE</span>
+      </a>
+    </div>
+    <div class="category-box">
+      <a href="#">
+        <img src="/@areaLayoutPath/assets/img/blog-category-4.png" alt="" />
+      	<span>SANATATE DIN LIVADA</span>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container-wide gray-bg">
+  <div class="container">
+    <div class="article-page">
+      <div class="article-list">        
+
+          @if (events.Count < 1) {
+              <div class="alert warning">
+                  @Translate("No_events_found", "Nu a fost gasit nici un articol de blog")
+              </div>
+          } else {
+              int i = 0;
+              foreach (var evnt in events) {         		         
+                  var publishDate = evnt.GetDate("ItemPublisher:Item.Data").ToString("dd.MM.yyyy");
+                  var url = evnt.GetValue("ItemPublisher:Item.Url");
+                  var identification = evnt.GetValue("ItemPublisher:Items.Count");
+                  
+                  <div class="post-short">
+                      @if(String.IsNullOrEmpty(@evnt.GetValue("ItemPublisher:Item.Imagine").ToString()) == false ){
+                      <div class="media-left">
+                          <a href="@url" class="media-object"><img src="@evnt.GetValue("ItemPublisher:Item.Imagine")" class="img-responsive" alt='@evnt.GetValue("ItemPublisher:Item.Titlu")' /></a>
+                      </div>
+                      }
+                      <div class="media-body">
+                          <h3>
+                              <a rel="bookmark" href="@url" title='@evnt.GetValue("ItemPublisher:Item.Titlu")'>@evnt.GetValue("ItemPublisher:Item.Titlu")</a>
+                          </h3>   
+                          @* <p class="post-date"><i class="fa fa-clock-o"></i> @publishDate</p> *@        
+                          
+                          <div class="post-summary">
+                              <p>@evnt.GetValue("ItemPublisher:Item.Rezumat") ... <a href="@url" class="read-more">@Translate("read more", "citeste mai mult")</a></p>
+                          </div>                               
+                          
+                      </div>
+                  </div>
+                  i++;
+              }
+          }
+  		  <a href="#" class="next-article pull-left">Vezi toate articolele</a>
+      </div>
+	  <div class="article-aside-list">
+        @RenderPageContent(16) 
+        
+        <div class="newsletter">
+          <h2>FII LA CURENT CU NOUTĂŢILE RÂURENI!</h2>
+          <input type="text" placeholder="E-mail:" />
+          <input type="submit" value="Abonează-te la newsletter" class="button-red" />
+        </div>
+        <div class="side-box">
+          <h4>Urmareste-ne pe Facebook!</h4>
+          <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FCu.drag.Raureni&amp;width=267&amp;height=250&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;show_border=true&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:267px; height:230px;" allowTransparency="true"></iframe>
+        </div>
+        <div class="side-box">
+          <h4>Urmăreşte-ne pe Pinterest</h4>
+          <a data-pin-do="embedUser" href="http://www.pinterest.com/raureni/"data-pin-scale-width="80" data-pin-scale-height="200" data-pin-board-width="400">Visit Râureni's profile on Pinterest.</a><!-- Please call pinit.js only once per page --><script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+        </div> 
+      </div>
+
+    </div>
+  </div>
+</div>

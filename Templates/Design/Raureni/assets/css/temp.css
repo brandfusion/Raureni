@@ -1,0 +1,130 @@
+#homeVideo {
+  display: none; 
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden
+}
+
+.video-container iframe,.video-container object,.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+}
+
+.video-wrapper {
+  display: none;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0.5em;
+  background-color: #fff;
+  border-radius: 0.5em
+}
+
+.video-wrapper .times {
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  display: block;
+  line-height: 2em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  margin: 0
+}
+.b-modal {
+  background-color: rgb(35, 50, 27) !important;
+}
+.blur {
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 1s ease-out;
+}
+.gif-overlay {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s ease-out;
+}
+.gif-overlay.fadeIn{
+  opacity: 1;
+}
+
+.product-list-wrapper .product-list-navigation {
+  position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0;
+    margin-top: -2em;
+}
+.product-list-wrapper .slick-arrow {
+  font-size: 4em;
+  color: #e1e1e1;
+  color: #009a4a;
+  
+}
+.product-list-wrapper .slick-arrow:hover {
+  /*color: #009a4a;*/
+  /*color: #80838f;*/
+}
+.product-list-wrapper .product-list-navigation .slick-next {
+  float: right;
+}
+.product-list-wrapper .product-list-navigation .slick-prev {
+  float: left;
+}
+.product-list-wrapper .box a img {
+  width: 100%;
+  max-width: 128px;  
+  margin: 0 auto;
+}
+.product-list-wrapper .item {
+  padding: 0 0.5em;
+}
+.product-list-wrapper .box a {
+  display: block;
+}
+.product-list-wrapper .box {  
+  padding: 0;
+  margin: 0px;
+}
+.product-list-wrapper .box span.item-image {
+  height: 200px;
+}
+.product-list-wrapper .box .item-title {
+    text-align: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.6em;
+    color: #009a4a;
+}
+.product-list-wrapper .product-list-heading {
+    border-bottom: 1px solid #e1e1e1;
+    color: #808080;
+    margin-bottom: 1em;
+    /* line-height: 2; */
+    font-size: 1.6em;
+    font-weight: 600;
+    font-family: 'Amatic SC', cursive;
+    color: #009a4a;
+}
+.product-list-wrapper {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}

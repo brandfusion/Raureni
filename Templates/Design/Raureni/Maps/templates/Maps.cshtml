@@ -1,0 +1,41 @@
+﻿@Include("../../Custom/GlobalVariables.cshtml")
+
+<div class="dynamicweb-map" id='@GetValue("ElementID")' data-list-position='@GetValue("ListPosition")'>                                
+             
+      <div class="col-lg-12 col-sm-12 col-md-12" style="display:none">
+        <div class="list">
+          <ol id="@GetValue("ListElementID")">
+          @foreach (LoopItem i in GetLoop("Locations")){
+              <li data-lat="@i.GetValue("Lat")" data-lng='@i.GetValue("Lng")' data-title='@i.GetValue("Name")'>
+          		  <div class="city"><img src="/@areaLayoutPath/assets/img/map-logo.gif" /> <span>@i.GetValue("Title")</span></div>
+          
+          		  @if (!string.IsNullOrEmpty(@i.GetValue("Name").ToString())) {
+          			<div class="name">@i.GetValue("Name")</div>
+          		  }
+          		  @if (!string.IsNullOrEmpty(@i.GetValue("Phone").ToString())) {
+          			<div class="phone">@Translate("Phone", "Tel"): @i.GetValue("Phone")</div>
+          		  }
+          		  @if (!string.IsNullOrEmpty(@i.GetValue("Fax").ToString())) {
+          		  	<div class="fax">@Translate("Fax", "Fax"): @i.GetValue("Fax")</div>
+         		  }
+          		  @if (!string.IsNullOrEmpty(@i.GetValue("Email").ToString())) {
+          		  	<div class="email">@Translate("Email", "Email"): <a href='mailto:@i.GetValue("Email")'>@i.GetValue("Email")</a></div>
+                  }
+              </li>
+              }
+          </ol>
+        </div>
+     </div>
+     <div class="col-lg-12 col-sm-12 col-md-12 map" style='width: @GetValue("MapWidth"); height: @GetValue("MapHeight");'>
+         <div id='@GetValue("MapElementID")' class="colormap"></div>
+     </div>            
+  
+      
+     <!--@If(NumberOfLocations=0)-->
+        <div class="col-lg-12 col-sm-12 col-md-12"> <div class="info">@Translate("No_locations_found", "No locations found")</div> </div>
+     <!--@EndIf-->
+  
+
+</div>	
+
+<script src="/@areaLayoutPath/Maps/javascripts/maps.js"></script>

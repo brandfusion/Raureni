@@ -1,0 +1,14 @@
+﻿@{
+	string anchorLink = System.Text.RegularExpressions.Regex.Replace(GetString("ParagraphHeader"), @"[^1-9a-zA-Z]+", "");
+}
+<div class="container">
+  <div class="product-list--category"> 
+      <div id="@anchorLink">&nbsp;</div>
+      <div class="category-paragraph">         
+          <h3><text>@GetValue("ParagraphHeader")</text></h3>
+          <p>@GetValue("ParagraphText")</p>           
+      </div>
+      @GetValue("ParagraphModule")
+                  
+  </div>
+</div>

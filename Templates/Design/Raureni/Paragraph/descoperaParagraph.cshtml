@@ -1,0 +1,181 @@
+﻿@{
+  var count = 0;
+}
+<div class='@GetString("Item.SetBackgroundBox")'>
+<div class='@GetString("Item.Container")'>
+
+@foreach (LoopItem i in GetLoop("Item.Paragraph_List")){ 
+  
+    <div class='@i.GetString("Item.Paragraph_List.Column") reset-padding @i.GetString("Item.Paragraph_List.SetMargin")'>  
+      <div class='media @i.GetString("Item.Paragraph_List.SetHeight")  @i.GetString("Item.Paragraph_List.SetTextSize")' @RenderImageBackground(i)>
+        @RenderHeading(i) 
+        @if (i.GetString("Item.Paragraph_List.ImagePosition") == "image-left" || i.GetString("Item.Paragraph_List.ImagePosition") == "image-top") 
+        {
+            @RenderImage(i) 
+        }
+                
+        @RenderText(i)     
+        
+        @if (i.GetString("Item.Paragraph_List.ImagePosition") == "image-right") 
+        {
+            @RenderImage(i) 
+        }
+      </div>
+    </div>    
+	
+
+    @* <!--------- Heading ---------> *@
+    @helper RenderHeading(LoopItem i)
+    {
+      if(i.GetBoolean("Item.Paragraph_List.ShowTitle"))
+      {
+          if (i.GetString("Item.Paragraph_List.HeadingPosition") == "top") {
+            if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Title")))
+            {
+              string str_headingType = string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.HeadingType")) ? "h1" : i.GetString("Item.Paragraph_List.HeadingType");
+              @String.Format("<{0}>{1}</{0}>", str_headingType, i.GetString("Item.Paragraph_List.Title"))
+            }
+          }
+      }
+    }
+    
+    @helper RenderHeadinginline(LoopItem i)
+    {
+      if(i.GetBoolean("Item.Paragraph_List.ShowTitle"))
+      {
+          if (i.GetString("Item.Paragraph_List.HeadingPosition") == "inline") {	
+            if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Title")))
+            {
+              string str_headingType = string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.HeadingType")) ? "h1" : i.GetString("Item.Paragraph_List.HeadingType");
+              @String.Format("<{0}>{1}</{0}>", str_headingType, i.GetString("Item.Paragraph_List.Title"))
+            }
+          }
+      }
+    }
+    
+    @* <!--------- Text ---------> *@
+    @helper RenderText(LoopItem i)
+    {  
+      if (!string.IsNullOrWhiteSpace(i.GetString("Item.Paragraph_List.Text")))
+      {
+        if (i.GetString("Item.Paragraph_List.ImageType") == "background" && i.GetString("Item.Paragraph_List.HeadingPosition") != "top" ) {
+          <div class="container">
+            <div class='media-body @i.GetString("Item.Paragraph_List.SetHeight") @i.GetString("Item.Paragraph_List.SetPadding") @i.GetString("Item.Paragraph_List.VAlignText") middle-content'>
+              <div class='@i.GetString("Item.Paragraph_List.ColumnText") @i.GetString("Item.Paragraph_List.ColorText")'>
+                <span class="subtitle">@i.GetString("Item.Paragraph_List.Subtitle")</span>
+                @RenderHeadinginline(i)
+                @i.GetString("Item.Paragraph_List.Text")
+            	<div class="pull-left">@RenderLink(i)</div>
+             	<div class="pull-right">@RenderLink2(i)</div>
+              </div>
+            </div>
+          </div>
+        } else {
+          <div class='media-body @i.GetString("Item.Paragraph_List.SetHeight") @i.GetString("Item.Paragraph_List.SetPadding") @i.GetString("Item.Paragraph_List.VAlignText") middle-content'> 
+              @RenderHeadinginline(i)
+              @i.GetString("Item.Paragraph_List.Text")
+           </div>
+        }
+      }
+    }
+    
+    @* <!--------- Link ---------> *@
+    @helper RenderLink(LoopItem i)
+    {  
+      if(i.GetBoolean("Item.Paragraph_List.ShowButton"))
+      {
+        if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Link")) && !string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.LinkText")) )
+        {        
+            <a href='@i.GetString("Item.Paragraph_List.Link")' @RenderOpenInANewWindow(i) class='@i.GetString("Item.Paragraph_List.CustomLink")'>@i.GetString("Item.Paragraph_List.LinkText")</a>
+        }
+      }
+    }
+	@helper RenderLink2(LoopItem i)
+    {  
+      if(i.GetBoolean("Item.Paragraph_List.ShowButton"))
+      {
+        if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Link2")) && !string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.LinkText2")) )
+        {        
+            <a href='@i.GetString("Item.Paragraph_List.Link2")' @RenderOpenInANewWindow(i) class='@i.GetString("Item.Paragraph_List.CustomLink")'>@i.GetString("Item.Paragraph_List.LinkText2")</a>
+        }
+      }
+    }
+
+    
+    @* <!--------- OpenInANewWindow ---------> *@
+    @helper RenderOpenInANewWindow(LoopItem i) {
+      if(i.GetBoolean("Item.Paragraph_List.OpenInANewWindow")) { 
+        @: target="_blank" 
+      }
+    }
+    
+    @* <!--------- Image ---------> *@
+    @helper RenderImage(LoopItem i)
+    {
+      if (i.GetString("Item.Paragraph_List.ImageType") == "image")
+      {
+        @RenderImageTag(i)
+      }
+    }
+    
+    @helper RenderImageTag(LoopItem i)
+    {
+      if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Image")))
+      {
+        if (string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Link")))
+        {
+          @RenderImageWrapper(i)
+        }
+        else
+        {
+          string str_target = i.GetBoolean("Item.Paragraph_List.OpenInANewWindow") ? "target='_blank'" : "";
+          <a href='@GetString("Item.Paragraph_List.Link")' @str_target>
+            @RenderImageWrapper(i)
+          </a>
+        }
+      }
+    }
+    
+    @helper RenderImageWrapper(LoopItem i)
+    {
+      string str_image = System.Web.HttpContext.Current.Server.UrlEncode(i.GetString("Item.Paragraph_List.Image"));
+      string str_width = i.GetString("Item.Paragraph_List.ImageWidth");
+    
+      if (i.GetString("Item.Paragraph_List.ImagePosition") == "image-left") 
+      {	
+        <div class="media-left @str_width">
+          <img class="img-responsive" src="@str_image" />
+        </div>
+      } 
+      if (i.GetString("Item.Paragraph_List.ImagePosition") == "image-right") 
+      {
+        <div class="media-right @str_width">
+          <img class="img-responsive" src="@str_image" />
+        </div>
+      } 
+      if (i.GetString("Item.Paragraph_List.ImagePosition") == "image-top")
+      {
+        <div class="@str_width wide-box">
+          <img class="img-responsive" src="@str_image" />
+        </div>
+      }  
+    }
+    
+    @* <!--------- ImageBackground ---------> *@
+    @helper RenderImageBackground(LoopItem i)
+    {
+	  if (!string.IsNullOrEmpty(i.GetString("Item.Paragraph_List.Image")))
+      {	
+        string str_bg_image = System.Web.HttpContext.Current.Server.UrlEncode(i.GetString("Item.Paragraph_List.Image"));
+        string str_bg_position = i.GetString("Item.Paragraph_List.BgImagePosition");
+        if (i.GetString("Item.Paragraph_List.ImageType") == "background") 
+        {
+          @: style="background:url(@str_bg_image) no-repeat @str_bg_position; background-size:cover;";
+        }
+	  }
+    }
+	count++;
+
+}
+</div>
+</div>

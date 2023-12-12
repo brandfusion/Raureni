@@ -1,0 +1,53 @@
+﻿@Include("../../Custom/GlobalVariables.cshtml")
+@{
+	var posts = GetLoop("ItemPublisher:Items.List");
+}
+
+<div class="container-wide gray-bg">
+  <div class="container">
+    <div class="article-page">
+      <div class="article-list">        
+
+          @if (posts.Count < 1) {
+              <div class="alert warning">
+                  @Translate("No posts found", "Nu a fost gasit nici un articol de blog")
+              </div>
+          } else {
+              int i = 0;
+              foreach (var post in posts) {         		         
+                  var publishDate = post.GetDate("ItemPublisher:Item.Data").ToString("dd.MM.yyyy");
+                  var url = post.GetValue("ItemPublisher:Item.Url");
+                  var identification = post.GetValue("ItemPublisher:Items.Count");                  
+
+                  <div class="post-short">
+                      @if(String.IsNullOrEmpty(@post.GetValue("ItemPublisher:Item.Imagine").ToString()) == false ){
+                      <div class="media-left">
+                          <a href="@url" class="media-object"><img src="@post.GetValue("ItemPublisher:Item.Imagine")" class="img-responsive" alt='@post.GetValue("ItemPublisher:Item.Titlu")' /></a>
+                      </div>
+                      }
+                      <div class="media-body">
+                          <h3>
+                              <a rel="bookmark" href="@url" title='@post.GetValue("ItemPublisher:Item.Titlu")'>@post.GetValue("ItemPublisher:Item.Titlu")</a>
+                          </h3>                                
+                          <div class="post-summary">
+                              <p>@post.GetValue("ItemPublisher:Item.Rezumat") ... <a href="@url" class="read-more">@Translate("read more", "citeste mai mult")</a></p>
+                          </div>                                                         
+                      </div>
+                  </div>
+                  i++;
+              }
+          }
+  		  <div class="pagination">@Include("../../Custom/PaginationItemPublisher.cshtml")</div>  
+  		  <a href='/Default.aspx?ID=@Pageview.Area.Item["CategoriesPage_ID"]&categorie=5' class="next-article pull-left">@Translate("View all", "Vezi toate articolele")</a> 
+      </div>
+	  <div class="article-aside-list">
+        @* <a href="https://www.kitchenshop.ro/premiiraureni" target="_blank" style="width: 100%;height:100%;"><img src="/Files/Images/promotie-hero-blog.jpg" /></a> *@
+        @RenderPageContent(16) 
+        
+        @Include("../../Custom/AbonareBlog.cshtml")             
+        @Include("../../Custom/SocialMedia.cshtml")  
+      </div>	  
+
+    </div>
+  </div>
+</div>

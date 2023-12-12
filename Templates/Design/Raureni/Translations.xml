@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<translations>
+  <key name="View all">
+    <translation culture="ro-RO"><![CDATA[Vezi toate articolele]]></translation>
+    <translation culture="en-US"><![CDATA[See all articles]]></translation>
+  </key>
+  <key name="New article">
+    <translation culture="ro-RO"><![CDATA[CELE MAI NOI ARTICOLE DIN BLOG]]></translation>
+    <translation culture="en-US"><![CDATA[Latest blog articles]]></translation>
+  </key>
+  <key name="read more">
+    <translation culture="ro-RO"><![CDATA[citeste mai mult]]></translation>
+    <translation culture="en-US"><![CDATA[Read more]]></translation>
+  </key>
+  <key name="Phone">
+    <translation culture="ro-RO"><![CDATA[TEL]]></translation>
+    <translation culture="en-US"><![CDATA[Phone]]></translation>
+  </key>
+  <key name="Fax">
+    <translation culture="ro-RO"><![CDATA[Fax]]></translation>
+    <translation culture="en-US"><![CDATA[Fax]]></translation>
+  </key>
+  <key name="email">
+    <translation culture="ro-RO"><![CDATA[E-mail]]></translation>
+    <translation culture="en-US"><![CDATA[E-mail]]></translation>
+  </key>
+  <key name="Follow Us">
+    <translation culture="ro-RO"><![CDATA[URMĂREŞTE-NE]]></translation>
+    <translation culture="en-US"><![CDATA[Follow us on ]]></translation>
+  </key>
+  <key name="Posted in">
+    <translation culture="ro-RO"><![CDATA[Postat in]]></translation>
+    <translation culture="en-US"><![CDATA[Posted in]]></translation>
+  </key>
+  <key name="Follow us on Facebook">
+    <translation culture="ro-RO"><![CDATA[Urmăreşte-ne pe Facebook!]]></translation>
+    <translation culture="en-US"><![CDATA[Follow us on Facebook!]]></translation>
+  </key>
+  <key name="Follow us on Pinterest">
+    <translation culture="ro-RO"><![CDATA[Urmăreşte-ne pe Pinterest]]></translation>
+    <translation culture="en-US"><![CDATA[Follow us on Pinterest]]></translation>
+  </key>
+  <key name="Subscribe to newsletter">
+    <translation culture="ro-RO"><![CDATA[Abonează-te la newsletter]]></translation>
+    <translation culture="en-US"><![CDATA[Subscribe to newsletter]]></translation>
+  </key>
+  <key name="Subscribe to blog">
+    <translation culture="ro-RO"><![CDATA[Abonează-te la blog]]></translation>
+    <translation culture="en-US"><![CDATA[Subscribe to blog]]></translation>
+  </key>
+  <key name="Nutrition declaration">
+    <translation culture="ro-RO"><![CDATA[Declaraţie nutriţională]]></translation>
+    <translation culture="en-US"><![CDATA[Nutrition declaration]]></translation>
+  </key>
+  <key name="Average values">
+    <translation culture="ro-RO"><![CDATA[Valori medii pentru 100 g produs]]></translation>
+    <translation culture="en-US"><![CDATA[Average values for 100 g of product ]]></translation>
+  </key>
+  <key name="Energy value">
+    <translation culture="ro-RO"><![CDATA[Valoare energetică]]></translation>
+    <translation culture="en-US"><![CDATA[Energy value]]></translation>
+  </key>
+  <key name="Proteins">
+    <translation culture="ro-RO"><![CDATA[Proteine]]></translation>
+    <translation culture="en-US"><![CDATA[Proteins]]></translation>
+  </key>
+  <key name="Carbohydrates">
+    <translation culture="ro-RO"><![CDATA[Glucide]]></translation>
+    <translation culture="en-US"><![CDATA[Carbohydrates]]></translation>
+  </key>
+  <key name="sugars">
+    <translation culture="ro-RO"><![CDATA[- din care zaharuri]]></translation>
+    <translation culture="en-US"><![CDATA[- sugars]]></translation>
+  </key>
+  <key name="Lipids">
+    <translation culture="ro-RO"><![CDATA[Lipide]]></translation>
+    <translation culture="en-US"><![CDATA[Lipids]]></translation>
+  </key>
+  <key name="Fatty acids">
+    <translation culture="ro-RO"><![CDATA[- din care acizi graşi saturaţi]]></translation>
+    <translation culture="en-US"><![CDATA[- fatty acids]]></translation>
+  </key>
+  <key name="Fibre">
+    <translation culture="ro-RO"><![CDATA[Fibre]]></translation>
+    <translation culture="en-US"><![CDATA[Fibre]]></translation>
+  </key>
+  <key name="Salt">
+    <translation culture="ro-RO"><![CDATA[Sare]]></translation>
+    <translation culture="en-US"><![CDATA[Salt]]></translation>
+  </key>
+  <key name="home">
+    <translation culture="ro-RO"><![CDATA[acasa]]></translation>
+    <translation culture="en-US"><![CDATA[home]]></translation>
+  </key>
+  <key name="Email">
+    <translation culture="ro-RO"><![CDATA[Email]]></translation>
+    <translation culture="en-US"><![CDATA[Email]]></translation>
+  </key>
+  <key name="No_locations_found">
+    <translation culture="ro-RO"><![CDATA[No locations found]]></translation>
+    <translation culture="en-US"><![CDATA[No locations found]]></translation>
+  </key>
+  <key name="You have successfully subscribed!">
+    <translation culture="ro-RO"><![CDATA[Te-ai abonat cu succes!]]></translation>
+    <translation culture="en-US"><![CDATA[You have successfully subscribed!]]></translation>
+  </key>
+  <key name="No posts found">
+    <translation culture="ro-RO"><![CDATA[Nu a fost gasit nici un articol de blog]]></translation>
+    <translation culture="en-US"><![CDATA[No post found]]></translation>
+  </key>
+  <key name="No product found">
+    <translation culture="en-US"><![CDATA[No product found]]></translation>
+    <translation culture="ro-RO"><![CDATA[Nu sunt produse]]></translation>
+  </key>
+  <key name="FII LA CURENT CU NOUTĂŢILE RÂURENI!">
+    <translation culture="en-US"><![CDATA[STAY UP TO DATE!]]></translation>
+    <translation culture="ro-RO"><![CDATA[FII LA CURENT CU NOUTĂŢILE RÂURENI!]]></translation>
+  </key>
+  <key name="Vezi gama completă">
+    <translation culture="en-US"><![CDATA[See the complete range]]></translation>
+    <translation culture="ro-RO"><![CDATA[Vezi gama completă]]></translation>
+  </key>
+  <key name="Vezi mai puţin">
+    <translation culture="en-US"><![CDATA[See less]]></translation>
+    <translation culture="ro-RO"><![CDATA[Vezi mai puţin]]></translation>
+  </key>
+  <key name="*Consumul de referinţă al unui adult obişnuit (8400kJ/2000kcal)">
+    <translation culture="en-US"><![CDATA[* Reference consumption of an average adult (8400 kJ / 2000 kcal) ]]></translation>
+    <translation culture="ro-RO"><![CDATA[*Consumul de referinţă al unui adult obişnuit (8400kJ/ 2000 kcal)]]></translation>
+  </key>
+  <key name="Follow us on Instagram">
+    <translation culture="en-US"><![CDATA[Urmăreşte-ne pe Instagram]]></translation>
+    <translation culture="ro-RO"><![CDATA[Urmăreşte-ne pe Instagram]]></translation>
+  </key>
+</translations>

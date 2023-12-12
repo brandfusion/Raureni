@@ -1,0 +1,16 @@
+﻿@MasterPageFile("Master/Master.cshtml")
+
+<!-- slider -->
+<div class="home-slider">
+  <div class="dwcontent flexslider" id="slider" title="Home Slider" data-settings="template:Slider.cshtml">    
+  </div>
+</div>
+
+<!-- content -->
+<div class="dwcontent" id="content" title="Main content" data-settings="template:StandardParagraph.cshtml;unwrap=true"></div>
+
+<div class="container-wide gray-bg newsletter-container test">
+  <div class="container">        
+    @Include("Custom/AbonareNewsletter.cshtml")
+  </div>
+</div>

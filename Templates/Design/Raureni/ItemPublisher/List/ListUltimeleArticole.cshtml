@@ -1,0 +1,27 @@
+﻿@if(GetLoop("ItemPublisher:Items.List").Count>0)
+{
+    <div class="container-wide gray-bg">
+      <div class="container">
+        <a href='/Default.aspx?ID=@Pageview.Area.Item["CategoriesPage_ID"]&categorie=5' class="next-article pull-right">@Translate("View all", "Vezi toate articolele")</a> 
+        <h2 class="blog-title">@Translate("New article", "CELE MAI NOI ARTICOLE DIN BLOG")</h2>
+        
+        <div class="blog-list">
+          @foreach (LoopItem i in GetLoop("ItemPublisher:Items.List")){
+          <div class="item">
+            <div class="box">
+              <a href='@i.GetValue("ItemPublisher:Item.Url")'>
+                @if(String.IsNullOrEmpty(@i.GetValue("ItemPublisher:Item.Imagine").ToString()) == false ){
+                  <img src='@i.GetValue("ItemPublisher:Item.Imagine")' class="item-image img-responsive" alt='@i.GetValue("ItemPublisher:Item.Titlu")' />
+                }  
+                <span class="item-title">@i.GetValue("ItemPublisher:Item.Titlu.Value")</span>
+                <span class="item-details">
+                  @i.GetValue("ItemPublisher:Item.Rezumat.Value")                   
+                </span>
+                <span class="item-button">@Translate("read more", "citeste mai mult")</span>
+              </a></div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+}     

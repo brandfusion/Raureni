@@ -1,0 +1,87 @@
+﻿@using System.Text
+@using System.Web
+
+@{
+    int currentPage = GetInteger("ItemPublisher:Items.Paging.CurrentPage");
+    int totalPages = GetInteger("ItemPublisher:Items.Paging.TotalPages");
+    int pageId = GetInteger("ItemPublisher:Global.PageId");
+	int paragraphId = GetInteger("ItemPublisher:Global.ParagraphId");
+    
+    
+    StringBuilder querySb = new StringBuilder();
+    string pageIdFromQuery = "";
+    
+    foreach (string key in HttpContext.Current.Request.QueryString.AllKeys)
+    {
+        if (key != null)
+        {
+            if (!key.ToUpper().Equals("ID") && !key.ToUpper().Equals("PID") && !key.ToUpper().Equals("PAGE"))
+            {
+                string value = HttpContext.Current.Request.QueryString[key].ToString();
+                querySb.Append("&");
+                querySb.Append(String.Format("{0}={1}", key, HttpUtility.UrlEncode(value)));
+            }
+            if (key.Equals("ID"))
+            {
+                try
+                {
+                    pageIdFromQuery = HttpContext.Current.Request.QueryString[key].ToString();
+                }
+                catch { }
+            }
+        }
+    }
+    
+    if (string.IsNullOrEmpty(pageIdFromQuery)) 
+	{
+		pageIdFromQuery = pageId.ToString();
+	}
+    string groupValue = HttpContext.Current.Request.QueryString.Get("GroupID");
+    if (!string.IsNullOrEmpty(groupValue))
+    {
+        groupValue = "&GROUPID=" + groupValue;
+    }
+}
+
+@if (currentPage > 1)
+{
+	<a href="Default.aspx?ID=@pageIdFromQuery&PID=@paragraphId&page=1@(groupValue)@(querySb.ToString())"><<</a>
+	<a href="Default.aspx?ID=@pageIdFromQuery&PID=@paragraphId&page=@(currentPage - 1)@(groupValue)@(querySb.ToString())"><</a>
+}
+
+@{
+	int firstPage = currentPage - 2;
+	if (firstPage < 1) 
+	{
+		firstPage = 1;
+	}
+	if (firstPage > 1) 
+	{
+		<a href="javascript:void(0);" class="disabled">...</a>
+	}
+	int lastPage = currentPage + 2;
+	if (lastPage > totalPages) 
+	{
+		lastPage = totalPages;
+	}
+	for (int i = firstPage; i <= lastPage; i++)
+	{
+		if (i == currentPage)
+		{
+			<span class="current">@i</span>
+		}
+		else
+		{
+            <a href="Default.aspx?ID=@pageIdFromQuery&PID=@paragraphId&page=@(i)@(groupValue)@(querySb.ToString())">@i</a>
+		}
+	}
+	if (lastPage < totalPages) 
+	{
+		<a href="javascript:void(0);" class="disabled">...</a>
+	}
+	if (currentPage < totalPages)
+	{
+		<a href="Default.aspx?ID=@pageIdFromQuery&PID=@paragraphId&page=@(currentPage + 1)@(groupValue)@(querySb.ToString())">></a>
+		<a href="Default.aspx?ID=@pageIdFromQuery&PID=@paragraphId&page=@(totalPages)@(groupValue)@(querySb.ToString())">>></a>
+	}
+}

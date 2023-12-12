@@ -1,0 +1,22 @@
+﻿string imagePath = "/Files/Images/Ecom/Products/";
+string imageCustomName = GetString("Ecom:Product.Name").Replace(" ","-").Replace("/","-") + "-" + GetValue("Ecom:Product.Number") + "_";
+
+string filePattern = imageCustomName + "*.png";
+string dir = System.Web.HttpContext.Current.Server.MapPath(imagePath + "Large/");
+
+string productImage = i.GetString("Ecom:Product.ImageLarge.Default.Clean");
+string productName = i.GetString("Ecom:Product.Name");	
+
+
+<div class="item">
+  <div class="product-box">
+    <a href='@i.GetValue("Ecom:Product.Link.Clean")'>
+      @if(!string.IsNullOrEmpty(productImage)){	
+          <img src="/Admin/Public/GetImage.ashx?Image=@productImage&Format=jpg&Width=190&Compression=90" alt="@productName" class="product-item-image img-responsive" itemprop="image" />          
+      } else {
+          <img src="/Files/Images/Ecom/no-image.png" class="product-item-image img-responsive">
+      }
+      <span class="product-item-title">@productName</span>
+     </a>
+   </div>
+</div> 

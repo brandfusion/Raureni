@@ -1,0 +1,16 @@
+﻿@MasterPageFile("Master/Master.cshtml")
+
+@TemplateTags()
+
+
+@{
+var languageSwitcherValue = "";
+foreach (var language in GetLoop("Languages")) {
+if (language.GetBoolean("IsCurrent")) {
+languageSwitcherValue = language.GetString("Culture");
+}
+}
+}
+
+
+@languageSwitcherValue

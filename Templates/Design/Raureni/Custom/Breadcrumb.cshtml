@@ -1,0 +1,14 @@
+﻿<div class="col-sm-12">
+  <div class="container">
+    <div class='breadcrumbs'>      
+      <ul>                        
+        <li><a href='/Default.aspx?ID=@GetValue("DwAreaFirstPageID")' title='@Translate("home", "acasa")'>@Translate("home", "acasa")</a></li>      
+        <li id="NavBreadcrumb" class="dwnavigation" data-settings="template:breadcrumb.xslt;expandmode:pathonly;"></li>
+        @* if (System.Web.HttpContext.Current.Request.QueryString["productid"] != null) { 
+          <li class="active"><span class="sbreadcrumb">&raquo;&nbsp;</span>  @GetValue("Title") </li>
+        } *@
+      </ul>   
+    </div>
+  </div>
+</div>
+  
